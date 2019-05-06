@@ -1,0 +1,14 @@
+Name,Sequence,Use
+crEC36,GCTACCATAGGCACCACGAG,crRNA to generate dpy-10(cn64) mutation
+crECA38,GCTACCATAGGCACCACGAG,sgRNA to generate dpy-10(cn64) mutation
+dpy-10 repair,CACTTGAACTTCAATACGGCAAGATGAGAATGACTGGAAACCGTACCGCATGCGGTGCCTATGGTAGCGGAGCTT CACATGGCTTCAGACCAACAGCCTAT,Repair template to generate dpy-10(cn64) mutation
+crECA39,GTCAATGCAGAAAGTCTCAT,sgRNA to generate the ben-1 F200Y allele swap in N2 
+crECA41,AAACTAATAATTAAAATTCAGGTCTCGGACACAGTCGTCGAGCCATACAACGCTACTCTTTCTGTCCACCAGCTCGTTGAAAATACGGATGAGACTTACTGCATTGACAACGAGGCTCTTTATGATA,repair template to generate the ben-1 F200Y allele swap in N2 
+crECA44,AGATCGACGAGAACAGCGCG,crRNA to generate a ben-1 deletion. Used in combination with crECA45
+crECA45,CAGGTACTATTATGGAGACG,crRNA to generate a ben-1 deletion. Used in combination with crECA44
+oECA1301,TGGAGCACGTTTCCAGCAAC,forward primer to confirm ben-1 deletion 
+oECA1302,ATTCGCGCTCTATAGCAACCA,reverse primer to confirm ben-1 deletion 
+ddPCR-forward,GGCAAGATGAGAATGACTGGAAAC,used for ddPCR
+ddPCR-reverse,GTGAAGCTCCGCTACCATAGG,used for ddPCR
+Taqman probe VIC,CACCACGAGCGGTACG,taqman probe used to quantify allele frequencies in the competition assay
+Taqman probe FAM,CACCACGAGCAGTACG,taqman probe used to quantify allele frequencies in the competition assay

@@ -1,0 +1,965 @@
+---
+title: "20160912_Main_text_figures"
+author: "SZ"
+date: "September 12, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library("rworldmap")
+library("geosphere")
+library("devtools")
+library("easysorter")
+# devtools::install_github("AndersenLab/linkagemapping")
+#devtools::install_github("AndersenLab/easysorter")
+library("linkagemapping")
+# devtools::install_github("wilkelab/cowplot")
+library("cowplot")
+library("tidyr")
+library("dplyr")
+# library("Cairo")
+#devtools::install_github("Andersenlab/cegwas")
+library("cegwas")
+library("Hmisc")
+library("genetics")
+library("knitr")
+library("reshape2")
+library("ggplot2")
+library("compute.es")
+library("boot")
+library("lme4")
+library("data.table")
+
+
+dir.create("cache/")
+dir.create("figures/")
+
+output <- opts_knit$get("rmarkdown.pandoc.to")
+opts_chunk$set(warning=F, message=F, echo=F)
+opts_chunk$set(warning=F, message=F, echo=F)
+opts_chunk$set(cache.path="cache/")
+opts_chunk$set(fig.path="figures/")
+
+output <- "html"
+if (output=="html") opts_chunk$set(fig.width=12, fig.height=6)
+```
+
+# Load functions
+
+```{r functions, cache=T}
+source("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Figures/Plot_functions.R")
+
+quick_es <- function(df, trt, cond, parentals, comp_strains){
+  
+  # a d of 1, we know that the two groups' means differ by one standard deviation; a d of .5 tells us that the two groups' means differ by half a standard deviation
+  
+  stat_df <- df %>%
+    dplyr::filter(trait == trt, condition==cond, strain %in% parentals)%>%
+    dplyr::select(strain, phenotype)%>%
+    dplyr::group_by(strain) %>%
+    dplyr::summarise(mean_p = mean(phenotype),
+              sd_p = sd(phenotype),
+              counts = n())%>%
+    data.frame()
+  
+  output <- mes(stat_df[1,2], stat_df[2,2], stat_df[1,3], stat_df[2,3], stat_df[1,4], stat_df[2,4],
+                level = 95, cer = 0.2, dig = 2, verbose = FALSE, id=NULL, data=NULL)
+  
+  stat_df <- df %>%
+    dplyr::filter(trait == trt, condition==cond, strain %in% comp_strains)%>%
+    dplyr::select(strain, phenotype)%>%
+    dplyr::group_by(strain) %>%
+    dplyr::summarise(mean_p = mean(phenotype),
+              sd_p = sd(phenotype),
+              counts = n())%>%
+    data.frame()
+  
+  output1 <- mes(stat_df[1,2], stat_df[2,2], stat_df[1,3], stat_df[2,3], stat_df[1,4], stat_df[2,4],
+                level = 95, cer = 0.2, dig = 2, verbose = FALSE, id=NULL, data=NULL)
+  
+  eff <- output1[1,4]/output[1,4]
+  
+  return(eff)
+}
+
+H2.test.boot <- function(data, indicies){
+  
+  d <- data[indicies,]
+  
+  pheno <- as.data.frame(dplyr::select(d, phenotype))[,1]
+  strain <- as.factor(d$strain)
+  
+  reffMod <- lme4::lmer(pheno ~ 1 + (1|strain))
+  
+  Variances <- as.data.frame(lme4::VarCorr(reffMod, comp = "Variance"))
+  
+  Vg <- Variances$vcov[1]
+  Ve <- Variances$vcov[2]
+  H2 <- Vg/(Vg+Ve)
+  
+  # errors <- sqrt(diag(lme4::VarCorr(reffMod, comp = "Variance")$strain))
+  
+  return(H2)  
+}
+# data is data frame that contains strain and phenotype column
+H2.test <- function(data){
+  
+  pheno <- as.data.frame(dplyr::select(data, phenotype))[,1]
+  strain <- as.factor(data$strain)
+  
+  reffMod <- lme4::lmer(pheno ~ 1 + (1|strain))
+  
+  Variances <- as.data.frame(lme4::VarCorr(reffMod, comp = "Variance"))
+  
+  Vg <- Variances$vcov[1]
+  Ve <- Variances$vcov[2]
+  H2 <- Vg/(Vg+Ve)
+  
+  # errors <- sqrt(diag(lme4::VarCorr(reffMod, comp = "Variance")$strain))
+  
+  return(H2)  
+}
+
+# df is data frame that contains strain and phenotype column
+H2.calc <- function(df, boot = T){
+  
+  
+  if(boot == T){
+    # bootstrapping with 1000 replications 
+    results <- boot(data=df, statistic=H2.test.boot, R=1000)
+    
+    # get 95% confidence interval 
+    ci <- boot.ci(results, type="bca")
+    
+    H2_errors <- data.frame(H2 = ci$t0, ci_l = ci$bca[4], ci_r = ci$bca[5])
+    
+    return(H2_errors)
+    
+  } else {
+    
+    H2 <- data.frame(H2 = H2.test(data = df), ci_l = NA, ci_r = NA)
+    return(H2)
+  }
+
+}
+
+
+```
+
+# Load and Prep Dose response data
+
+```{r Dose Response, cache=TRUE,warning=F, message=F, echo=F}
+dr_df <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/Dose_Response1.csv")
+dr_df2 <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/Dose_Response2.csv")
+
+dr1 <- mutate(dr_df, day = 1) %>%
+  dplyr::select(-round, -assay)
+dr2 <- mutate(dr_df2, day = 2) %>%
+  dplyr::select(-round, -assay)
+
+dr12 <- bind_rows(dr1,dr2)
+
+all_herits <- list()
+all_herit_pheno <- list()
+zero_traits = T # set this to T if you want to zero out on means
+for(j in 1:length(unique(dr12$trait))){
+  
+  herit_df <- dplyr::select(dr12, strain, condition, dose_µM, phenotype, trait) %>%
+    dplyr::filter(trait == unique(dr12$trait)[j]) %>%
+    dplyr::mutate(cond_dose = paste(condition, dose_µM, sep = "_")) %>%
+    dplyr::select(-condition, -dose_µM) %>%
+    tidyr::separate(cond_dose, into = c("condition", "dose"))
+  
+  herit_df$dose <- as.numeric(herit_df$dose)
+  
+  
+  herit_df <- herit_df%>%
+    dplyr::filter(dose == 0)%>%
+    dplyr::group_by(strain,condition)%>%
+    dplyr::summarise(zero_m = mean(phenotype, na.rm=T))%>%
+    dplyr::left_join(herit_df,.,by=c("strain","condition"))%>%
+    dplyr::mutate(corrected_p = phenotype - zero_m)%>%
+    tidyr::unite(condition,dose,col = "cond_dose",sep="_",remove = T)
+  
+  
+  if(zero_traits == T){
+    herit_df <- dplyr::select(herit_df, strain, cond_dose, trait, phenotype = corrected_p)
+  } else{
+    herit_df <- dplyr::select(herit_df, strain, cond_dose, trait, phenotype)
+  }
+  
+  herit_list <- list()
+  
+  for(i in 1:length(unique(herit_df$cond_dose))){
+    temp <- dplyr::filter(herit_df, cond_dose == unique(herit_df$cond_dose)[i]) %>%
+      arrange(strain)
+    
+    
+    h2 <- H2.calc(temp, boot = F)
+    
+    h2$phenotype <- unique(herit_df$cond_dose)[i]
+    h2$trait <- as.character(unique(dr12$trait)[j])
+    
+    herit_list[[i]] <- h2
+    
+  }
+  
+  all_herits[[j]] <- rbind_all(herit_list)
+  all_herit_pheno[[j]] <- herit_df
+}
+
+H2 <- dplyr::bind_rows(all_herits)
+H2a <- tidyr::separate(H2, phenotype, into = c("condition", "dose_µM"), sep = "_")
+H2a$dose_µM <- as.numeric(H2a$dose_µM)
+
+H2_phen <- dplyr::bind_rows(all_herit_pheno)%>%
+  tidyr::separate(cond_dose, into = c("condition", "dose_µM"),sep = "_",remove = F)
+
+H2_phen$dose_µM <- as.numeric(H2_phen$dose_µM)
+
+DR_H2_1 <- left_join(H2_phen, H2a, by = c("condition", "dose_µM", "trait"))%>%
+  dplyr::filter(grepl("q25.TOF|q25.EXT|median.TOF|q75.TOF|q75.EXT|q90.EXT|norm.n|^n$|f.L1|f.ad|f.L4|q75.norm.EXT", trait))
+
+expt <- DR_H2_1 %>% dplyr::filter(condition != "abamectin", condition !="symadex", condition !="mitoxantrone")
+expt$condition <- Hmisc::capitalize(expt$condition)
+
+
+write.table(expt, file = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/Top2/Figures/Supp/csv/Dose_Response_zeroed.csv",
+            quote=FALSE, sep=",", row.names = F)
+
+write.table(expt, file = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Processed_Data/Dose_Response_zeroed.csv",
+            quote=FALSE, sep=",", row.names = F)
+
+expt <- dplyr::select(expt, -cond_dose, -ci_l, -ci_r)%>%
+  dplyr::filter(trait == "q75.TOF")
+
+
+write.table(expt, file = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Tables/TableS1_DoseResponses.csv",
+            quote=FALSE, sep=",", row.names = F)
+```
+
+# Figure S2 - Dose responses
+```{r Dose Response Plot, cache=TRUE,fig.width=18, fig.height=12 }
+
+expt <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Processed_Data/Dose_Response_zeroed.csv")
+
+expt$dose_µM <- ifelse(expt$dose_µM == 31, 31.25, 
+                       ifelse(expt$dose_µM == 62, 62.5,
+                              ifelse(expt$dose_µM == 31, 31.25,expt$dose_µM)))
+
+means_by_trait(expt, "q75.TOF", h2_pos = NA)+
+  labs(y = "Animal Length", title = "") + 
+  guides(color=guide_legend(title="Strain")) +
+  theme(legend.title = element_text( size=14, face="bold"),
+        panel.background = element_rect(colour = "black", size=1),
+        strip.background = element_rect(colour = "black", fill = "grey80",
+                                          size = 1))
+
+cowplot::ggsave(filename = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS2_Dose_Response.tiff",
+                       plot = last_plot(),
+       width = 7.5,
+       height = 4)
+
+``` 
+
+
+# Figure S3 - NIL Results
+
+```{r}
+
+
+nil.pheno <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/NIL_regressed_phenotypes.csv")
+
+nil_table <- nil.pheno %>% 
+  dplyr::filter(trait == "median.TOF")%>%
+  dplyr::select(condition, strain, trait, phenotype)
+
+write.table(nil_table, file = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Tables/TableS8_NIL-phenotypes.csv",
+            quote=FALSE, sep=",", row.names = F)
+
+nil_pl <- nil.pheno %>% 
+  dplyr::filter(trait == "median.TOF")%>%
+  group_by(strain,trait)%>%
+  mutate(med= median(phenotype) )%>%
+  mutate(med1 = med+ 2*IQR(phenotype))%>%
+  dplyr::group_by(strain)%>%
+  dplyr::mutate(mph = mean(phenotype),
+                sph = sd(phenotype))%>%
+  dplyr::filter(phenotype <= 2*sph+mph,
+                phenotype >= mph-2*sph)%>%
+  dplyr::filter(condition == "etoposide", trait == "median.TOF")%>%
+  dplyr::filter(strain %in% c("N2","CB4856","ECA220","ECA219","ECA216")) %>%
+  ggplot(.)+
+  aes(x = factor(strain, levels = c("N2","CB4856","ECA216","ECA219","ECA220")), y = phenotype, color = "black")+
+  geom_jitter(width=.25, color = "black", alpha =.7, size =1)+
+  geom_boxplot(outlier.color =NA, color = "black", aes(fill = strain), alpha = .7)+
+  scale_fill_manual(values = c("blue", "gray50", "gray50", "gray50","orange"))+
+  theme_bw()+
+  theme(axis.text.x = element_text(size=0, face="bold", color="black"),
+        axis.text.y = element_text(size=12, face="bold", color="black"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=16, face="bold", color="black"),
+        strip.text.x = element_blank(),
+        strip.text.y = element_blank(),
+        plot.title = element_text(size=14, face="bold", vjust = 1),
+        legend.position="none",
+        panel.background = element_rect( color="black",size=1.2),
+        strip.background = element_rect(color = "black", size = 1.2))+
+  theme(legend.position="none",
+        panel.border = element_rect(size=1, colour = "black"))+
+  labs(x = "Strain", y = "Animal Length")
+
+
+
+y1 <- .03
+y2 <- 0.009
+blck <- .12/2
+spce <- .055
+
+x1 <- .16
+x2 <- .33
+x3 <- .5
+x4 <- .68
+x5 <- .85
+
+ggdraw() +
+  draw_plot(nil_pl, 0, .1, 1, .9) +
+  draw_label("ChrII", x = .08, y = .07, size = 12, hjust = -.16, fontface = 'bold')+
+  geom_rect(aes(xmin = x1, xmax = x1+blck, ymin = y1*2, ymax = y1*2 +.02),
+            colour = "black", fill = "orange", alpha = .5)+
+  geom_rect(aes(xmin = x2, xmax = x2+blck, ymin = y1*2, ymax = y1*2 +.02),
+            colour = "black", fill = "blue", alpha = .5)+
+  geom_rect(aes(xmin = x3, xmax = x3+blck, ymin = y1*2, ymax = y1*2 +.02),
+            colour = "black", fill = "blue", alpha = .5)+
+  draw_label("11.43-12.11 Mb", x =  x3+blck*.5, y = y1*2 +.04, size = 12, fontface = "bold")+
+  geom_rect(aes(xmin = x3+blck*.25, xmax = x3+blck*.75, ymin = y1*2, ymax = y1*2 +.02),
+            colour = "black", fill = "orange", alpha = .5)+
+  geom_rect(aes(xmin = x4, xmax = x4+blck, ymin = y1*2, ymax = y1*2 +.02),
+            colour = "black", fill = "orange", alpha = .5)+
+  draw_label("11.46-11.9 Mb", x =  x4+blck*.5, y = y1*2 +.04, size = 12, fontface = "bold")+
+  geom_rect(aes(xmin = x4+blck*.25, xmax = x4+blck*.75, ymin = y1*2, ymax = y1*2 +.02),
+            colour = "black", fill = "blue", alpha = .5)+
+  geom_rect(aes(xmin = x5, xmax = x5+blck, ymin = y1*2, ymax = y1*2 +.02),
+            colour = "black", fill = "blue", alpha = .5)+
+  geom_rect(aes(xmin = x5+blck*.75, xmax = x5+blck*.85, ymin = y1*2, ymax = y1*2 +.02),
+            colour = "black", fill = "orange", alpha = .5)+
+  draw_label("12.01-12.11 Mb", x =  x5+blck*.5, y = y1*2 +.04, size = 12, fontface = "bold")
+
+
+cowplot::ggsave(filename = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS3_NILs.tiff",
+                plot = last_plot(),
+                width = 7,
+                height = 3.5)
+
+
+```
+
+# Figure S4 - Tajimas D
+
+```{r interval_details}
+D <- tajimas_d()
+D[[2]]+ theme_bw()+
+    theme(axis.text.x = element_text(size=12, face="bold", color="black"),
+        axis.text.y = element_text(size=12, face="bold", color="black"),
+        axis.title.x = element_text(size=14, face="bold", color="black"),
+        axis.title.y = element_text(size=14, face="bold", color="black",vjust=1),
+        strip.text.x = element_text(size=0, face="bold", color="black"),
+        strip.text.y = element_text(size=20, face="bold", color="black"),
+        plot.title = element_text(size=24, face="bold",vjust=1),
+        legend.title = element_text(size=14),
+        panel.border = element_rect(size=2))
+
+write.table(D[[1]], file = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Tables/TableS7_tajimasD.csv",
+            quote=FALSE, sep=",", row.names = F)
+
+cowplot::ggsave(filename = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS4_TajimasD.tiff",plot=last_plot(),
+                width = 7,
+                height = 3)
+```
+
+# Figure S5 - Worldwid allele distribution
+
+```{r NIL Plot, fig.width=18, fig.height=10}
+
+allele_distribution1()
+
+cowplot::ggsave("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS5_allele_distribution.tiff",plot = last_plot(),
+                height = 3.5,
+                width = 7)
+
+allele_distribution1()
+
+cowplot::ggsave("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS5_allele_distribution.pdf",plot = last_plot(),
+                height = 7,
+                width = 14)
+```
+
+# Figure S6 - Dominance Results
+
+```{r dominance data}
+
+dominance <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/Top2/Figures/Main_text/csv/raw/Regressed_Etoposide_Dominance.csv")
+
+test <- dominance%>%
+    dplyr::filter(trait == "median.TOF")%>%
+  dplyr::mutate(phenotype=.resid)
+
+aov_res <- aov(test$phenotype ~ test$strain)
+summary(aov_res)
+TukeyHSD(aov_res)
+
+dominance_table <- dominance%>%
+  dplyr::filter(trait == "median.TOF")%>%
+  dplyr::mutate(phenotype=.resid)%>%
+  dplyr::mutate(condition = "Etoposide")%>%
+    dplyr::mutate(strain1 = factor(strain, levels = c("N2"   ,"CB4856" , "N2GFP",  "CB4856GFP","GFP"   ),
+                                 labels = c("Bristol","Hawaii", "Bristol/Bristol-GFP", "Hawaii/Bristol-GFP","Bristol-GFP/Bristol-GFP")))%>%
+  dplyr::select(condition, strain=strain1, trait, phenotype)
+
+
+write.table(dominance_table, file = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Tables/TableS9_Dominance-phenotype.csv",
+            quote=FALSE, sep=",", row.names = F)
+
+```
+
+
+```{r dominance figure}
+
+dominance %>%
+  dplyr::filter(trait == "median.TOF")%>%
+  dplyr::mutate(strain1 = factor(strain, levels = c("N2"   ,"CB4856" , "N2GFP",  "CB4856GFP","GFP"   ),
+                                 labels = c("Bristol","Hawaii", "Bristol/Bristol-GFP", "Hawaii/Bristol-GFP","Bristol-GFP/Bristol-GFP")))%>%
+  # filter(strain1 != "N2")%>%
+  ggplot(.)+
+  aes(x = strain1, y = .resid, color = strain, fill = strain1)+
+  scale_color_manual(values = c("black", "black","black", "black","black"))+
+  scale_fill_manual(values = c("orange", "blue", "gray50","gray50","gray50"))+
+    geom_jitter(width=.25, alpha = .5, size =1)+
+  geom_boxplot(outlier.shape = NA, alpha=.7)+
+
+  theme_bw()+
+    theme(axis.text.x = element_text(size=8, face="bold", color="black"),
+        axis.text.y = element_text(size=14, face="bold", color="black"),
+        axis.title.x = element_text(size=0, face="bold", color="black"),
+        axis.title.y = element_text(size=16, face="bold", color="black",vjust=1),
+        strip.text.x = element_text(size=0, face="bold", color="black"),
+        strip.text.y = element_text(size=0, face="bold", color="black"),
+        plot.title = element_text(size=24, face="bold",vjust=1),
+        legend.title = element_text(size=14),
+        panel.border = element_rect(size=2))+
+  theme(legend.position="none",
+        panel.border = element_rect(size=1, colour = "black"))+
+  labs( y = "Animal Size")
+
+
+cowplot::ggsave(filename = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS6_Dominancne.tiff",
+                plot = last_plot(),
+       width = 7.5,
+       height = 3.5)
+```
+
+# Figure S7 - npp-3 complementation
+
+```{r Complementation Data, cache=T}
+load("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/npp3_comp_regressed.Rda")
+npp3com <- regressed
+quantcomp <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/top2_quant_comp_regressed.csv")
+top2com <- quantcomp
+
+npp3_table <- npp3com%>%
+  dplyr::mutate(condition = "etoposide", experiment= "npp3 test")%>%
+  dplyr::filter(!grepl("min1",strain), trait == "n")%>%
+  dplyr::mutate(strain1 = factor(strain,
+                 levels = c("N2",
+                            "CB4856" ,   
+                            "N2npp3",
+                            "CB4856npp3" ),
+                 labels = c("Bristol"  ,
+                            "Hawaii",
+                            "Bristol/∆npp3",
+                            "Hawaii/∆npp3"),
+                 ordered = T))%>%
+  dplyr::select(experiment,condition, strain=strain1, trait, phenotype = .resid)
+
+top2_table <- top2com%>%
+  dplyr::mutate(condition = "etoposide", experiment= "top2 test")%>%
+  dplyr::filter(!grepl("∆CB4856",strain), trait == "n")%>%
+  dplyr::mutate(strain1 = factor(strain,
+                 levels = c("N2",
+                            "CB4856" ,   
+                            "CB4856/∆N2",
+                            "N2/∆N2" ),
+                 labels = c("Bristol"  ,
+                            "Hawaii",
+                            "Hawaii/∆top2",
+                            "Bristol/∆top2"),
+                 ordered = T))%>%
+  dplyr::select(experiment,condition, strain=strain1, trait, phenotype )
+
+gene.comp <- dplyr::rbind_all(list(top2_table, npp3_table))
+  
+write.table(gene.comp, file = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Tables/TableS10_Complementation-npp3-top2.csv",
+            quote=FALSE, sep=",", row.names = F)
+
+```
+
+## _∆top-2_, but not _∆npp-3_, Fails to Complement Resistance
+
+```{r Complementation Plot, fig.height=12, fig.width=20}
+
+npp3compl <- npp3com %>%
+  dplyr::filter(trait == "n", !(strain %in% c("N2min1","CB4856min1")))
+
+aov_res <- aov(npp3compl$.resid ~ npp3compl$strain)
+summary(aov_res)
+TukeyHSD(aov_res)
+
+npp3compl <- npp3com %>%
+  dplyr::filter(trait == "n", !(strain %in% c("N2min1","CB4856min1")))%>%
+  ggplot(.)+
+  aes(x = factor(strain,
+                 levels = c("N2",
+                            "CB4856" ,   
+                            "N2npp3",
+                            "CB4856npp3" ),
+                 labels = c("N2"  ,
+                            "CB4856",
+                            "N2npp3",
+                            "CB4856npp3"),
+                 ordered = T), 
+      y = .resid, 
+      color = strain, 
+      fill =  factor(strain,
+                     levels = c("N2",
+                                "CB4856" ,   
+                                "N2npp3",
+                                "CB4856npp3" ),
+                     labels = c("N2"  ,
+                                "CB4856",
+                                "N2npp3",
+                                "CB4856npp3"),
+                     ordered = T))+
+  geom_jitter(width=.25, size =1 , alpha =.7)+
+  geom_boxplot(outlier.colour = NA, alpha=.7)+
+  scale_color_manual(values = c("black", "black","black", "black", "black", "black"))+
+  scale_fill_manual(values = c( "orange", "blue","gray50", "gray50","gray50", "gray50" ))+
+  theme_bw()+
+  theme(axis.text.x = element_text(size=0, face="bold", color="black"),
+        axis.text.y = element_text(size=14, face="bold", color="black"),
+        axis.title.x = element_text(size=0, face="bold", color="black", vjust=-.3),
+        axis.title.y = element_text(size=16, face="bold", color="black"),
+        strip.text.x = element_text(size=0, face="bold", color="black"),
+        strip.text.y = element_text(size=0, face="bold", color="black"),
+        plot.title = element_text(size=16, face="bold",hjust = 0.5),
+        legend.position="none",
+        panel.background = element_rect( color="black",size=1.2),
+        strip.background = element_rect(color = "black", size = 1.2))+
+  labs(y = "Brood Size", title = expression(bold(paste(bolditalic("\u0394npp-3")))))
+
+
+#  Complementation results
+
+
+quantcomp <- dplyr::filter(top2com,  strain %in% c("N2", "CB4856","N2/∆N2","CB4856/∆N2" ))
+
+quant.test <- dplyr::filter(quantcomp,trait == "n")
+
+aov_res <- aov(quant.test$phenotype ~ quant.test$strain)
+summary(aov_res)
+TukeyHSD(aov_res)
+
+quantcomp.pl <- quantcomp %>%
+  dplyr::filter(trait == "n")%>%
+  ggplot(.)+
+  aes(x = factor(strain,
+                 levels = c("N2",
+                            "CB4856" ,  
+                            "N2/∆N2",
+                            "CB4856/∆N2"),
+                 labels = c("N2",
+                            "CB4856" ,  
+                            "N2/∆N2",
+                            "CB4856/∆N2"),
+                 ordered = T), 
+      color = strain, 
+      fill =  factor(strain,
+                     levels = c("N2",
+                                "CB4856" ,
+                                "N2/∆N2",
+                                "CB4856/∆N2"),
+                     labels = c("N2",
+                                "CB4856" ,
+                                "N2/∆N2",
+                                "CB4856/∆N2"),
+                     ordered = T), y = phenotype)+
+  geom_jitter(width=.25, size =1 , alpha =.7)+
+  geom_boxplot(outlier.colour = NA, alpha=.7)+
+  scale_color_manual(values = c("black", "black","black", "black", "black", "black"))+
+  scale_fill_manual(values = c( "orange", "blue","gray50", "gray50","gray50", "gray50" ))+
+  # scale_x_discrete(labels = c(expression(bold("N2")),
+  #                             expression(bold("CB4856")),
+  #                             expression(bold("N2 / CB4856")~bolditalic("\u0394top-2")),
+  #                             expression(bold("CB4856 / N2")~bolditalic("\u0394top-2"))))+
+  theme_bw()+
+  theme(axis.text.x = element_text(size=0, face="bold", color="black"),
+        axis.text.y = element_text(size=14, face="bold", color="black"),
+        axis.title.x = element_text(size=0, face="bold", color="black", vjust=-.3),
+        axis.title.y = element_text(size=16, face="bold", color="black"),
+        strip.text.x = element_text(size=0, face="bold", color="black"),
+        strip.text.y = element_text(size=0, face="bold", color="black"),
+        plot.title = element_text(size=16, face="bold", hjust = 0.5),
+        legend.position="none",
+        panel.background = element_rect( color="black",size=1.2),
+        strip.background = element_rect(color = "black", size = 1.2))+
+  labs(y = "Brood Size", title = expression(bold(paste(bolditalic("\u0394top-2")))))
+
+y1 <- .07
+y2 <- .1
+
+blck <- .05
+spce <- .125
+
+x1 <- .212
+x2 <- .422
+x3 <- .627
+x4 <- .835
+
+
+ggdraw() +
+  # # ADD PLOT
+  draw_plot(npp3compl, 0, .1, 1, .45) +
+  draw_plot(quantcomp.pl, 0, .55, 1, .45)+
+  # #  LABELS
+  # #  LABELS
+  # draw_label("Genome", x = 0.0, y = y1+.015,hjust = -.1, size = 12, fontface = 'bold')+
+  # draw_label("Chr II", x = 0.0, y = y2+.018 ,hjust = -.16, size = 12, fontface = 'bold') +
+  # # UPPER RECTANGLES
+  geom_rect(aes(xmin = x1, xmax = x1+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x2, xmax = x2+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "blue", alpha =0.5)+
+  geom_rect(aes(xmin = x3, xmax = x3+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x4, xmax = x4+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "blue", alpha =0.5)+
+  # # LOWER RECTANGLES
+  geom_rect(aes(xmin = x1, xmax = x1+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x2, xmax = x2+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "blue", alpha =0.5)+
+  geom_rect(aes(xmin = x3, xmax = x3+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x4, xmax = x4+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  # # ADD TRIANGLES
+  geom_point(aes(x = x3+.55*blck, y = y2 +.01225), shape = 24, fill = "gray", color = "black", size = 4)+
+  geom_point(aes(x = x4+.55*blck, y = y2 +.01225), shape = 24, fill = "gray", color = "black", size = 4)+
+  draw_plot_label(c("A", "B"), c(0,0), c(1,.6), size = 16)
+
+
+ggsave("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS7_comp_npp3top2.tiff",
+       height = 4.25,
+       width = 6.5,units = "in")
+```
+
+
+# Figure S8 -  Quantitative Compementation + swap
+
+```{r}
+quantcomp <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/top2_quant_comp_regressed.csv")
+```
+
+
+```{r}
+
+quantcomp.pl <- quantcomp %>%
+  dplyr::filter(trait == "median.TOF")%>%
+  ggplot(.)+
+  aes(x = factor(strain,
+                 levels = c("N2",
+                            "CB4856" ,   
+                            "N2/∆N2",
+                            "N2/∆CB4856",
+                            "CB4856/∆N2",
+                            "CB4856/∆CB4856"),
+                 labels = c("N2",
+                            "CB4856" ,   
+                            "N2/∆N2",
+                            "N2/∆CB4856",
+                            "CB4856/∆N2",
+                            "CB4856/∆CB4856"),
+                 ordered = T), 
+      color = strain, 
+      fill =  factor(strain,
+                     levels = c("N2",
+                                "CB4856" ,   
+                                "N2/∆N2",
+                                "N2/∆CB4856",
+                                "CB4856/∆N2",
+                                "CB4856/∆CB4856"),
+                     labels = c("N2",
+                                "CB4856" ,   
+                                "N2/∆N2",
+                                "N2/∆CB4856",
+                                "CB4856/∆N2",
+                                "CB4856/∆CB4856"),
+                     ordered = T), y = phenotype)+
+    geom_jitter(width=.25, size =1 , alpha =.7)+
+  geom_boxplot(outlier.colour = NA, alpha=.7)+
+  scale_color_manual(values = c("black", "black","black", "black", "black", "black"))+
+  scale_fill_manual(values = c( "orange", "blue","gray50", "gray50","gray50", "gray50" ))+
+  scale_x_discrete(labels = c(expression(bold("N2")),
+                              expression(bold("CB4856")),
+                              expression(bold("N2 / N2")~bolditalic("\u0394top-2")),
+                              expression(bold("N2 / CB4856")~bolditalic("\u0394top-2")),
+                              expression(bold("CB4856 / N2")~bolditalic("\u0394top-2")),
+                              expression(bold("CB4856 / CB4856")~bolditalic("\u0394top-2"))))+
+  theme_bw()+
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_text(size=14, face="bold", color="black"),
+        axis.title.x = element_text(size=0, face="bold", color="black", vjust=-.3),
+        axis.title.y = element_text(size=16, face="bold", color="black"),
+        strip.text.x = element_text(size=0, face="bold", color="black"),
+        strip.text.y = element_text(size=0, face="bold", color="black"),
+        plot.title = element_text(size=0, face="bold", vjust = 1),
+        legend.position="none",
+        panel.background = element_rect( color="black",size=1.2),
+        strip.background = element_rect(color = "black", size = 1.2))+
+  labs(y = "Animal Length", title = "Etoposide")
+
+y1 <- .06
+y2 <- .09
+
+blck <- .05
+spce <- .08
+x1 <- .15
+x2 <- .295
+x3 <- .44
+x4 <- .585
+x5 <- .73
+x6 <- .878
+
+ggdraw() +
+  # # ADD PLOT
+  draw_plot(quantcomp.pl, 0, .1, 1, .9) +
+  # #  LABELS
+  # #  LABELS
+  # draw_label("Genome", x = 0.0, y = y1+.015,hjust = -.1, size = 12, fontface = 'bold')+
+  # draw_label("Chr II", x = 0.0, y = y2+.018 ,hjust = -.16, size = 12, fontface = 'bold') +
+  # # UPPER RECTANGLES
+  geom_rect(aes(xmin = x1, xmax = x1+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x2, xmax = x2+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "blue", alpha =0.5)+
+  geom_rect(aes(xmin = x3, xmax = x3+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x4, xmax = x4+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x5, xmax = x5+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "blue", alpha =0.5)+
+  geom_rect(aes(xmin = x6, xmax = x6+blck, ymin = y1, ymax = y1+y1*.007 +.02),
+            colour = "black", fill = "blue", alpha =0.5)+
+  # # LOWER RECTANGLES
+  geom_rect(aes(xmin = x1, xmax = x1+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x2, xmax = x2+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "blue", alpha =0.5)+
+  geom_rect(aes(xmin = x3, xmax = x3+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x4, xmax = x4+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "blue", alpha =0.5)+
+  geom_rect(aes(xmin = x5, xmax = x5+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "orange", alpha =0.5)+
+  geom_rect(aes(xmin = x6, xmax = x6+blck, ymin = y2, ymax = y2+y2*.007 +.02),
+            colour = "black", fill = "blue", alpha =0.5)+
+  # # ADD TRIANGLES
+  geom_point(aes(x = x3+.55*blck, y = y2 +.012), shape = 24, fill = "gray", color = "black", size = 4)+
+  geom_point(aes(x = x4+.55*blck, y = y2 +.012), shape = 24, fill = "gray", color = "black", size = 4)+
+  geom_point(aes(x = x5+.55*blck, y = y2 +.012), shape = 24, fill = "gray", color = "black", size = 4)+
+  geom_point(aes(x = x6+.55*blck, y = y2 +.012), shape = 24, fill = "gray", color = "black", size = 4)
+
+
+test <- quantcomp %>%
+  dplyr::filter(trait == "median.TOF")
+
+aov_res <- aov(test$phenotype ~ test$strain)
+summary(aov_res)
+TukeyHSD(aov_res)
+
+ggsave("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS8_complete_top2_quantcomp.tiff",
+       height = 3.5,
+       width = 7.5)
+```
+
+
+# Figure S9 - Amsacrine GWAS and Linkage
+
+```{r Other Poison GWAS Data}
+
+gwas.pois <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/GWAS_processed_maps_tenip_amsa_etop_xk.csv")
+
+source("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/Top2/Scripts/Plot_functions.R")
+
+amsa <- data.frame(gwas.pois) %>%
+  dplyr::filter(!grepl("Mt",marker), log10p !=0)%>%
+  dplyr::filter(trait %in% c("amsacrine_f.l1"))%>%
+  group_by(trait)%>%
+  mutate(newBF = -log10(.05/n()))%>% # redfinfe BF and threshold to be at BF for plot
+  mutate(newabove = ifelse(log10p > newBF, 1, 0))%>%
+  dplyr::select(-BF,-aboveBF)%>%
+  dplyr::rename(BF=newBF,aboveBF=newabove)%>%
+  manplot()
+
+amsa[[1]]+ 
+  theme(axis.text.x = ggplot2::element_text(size = 14, face = "bold", color = "black"),
+        axis.title.x = ggplot2::element_text(size = 16, face = "bold", color = "black"),
+        axis.title.y = ggplot2::element_text(size =16),
+        plot.title = ggplot2::element_text(size=0))
+
+genos <- data.frame(data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Ancillary/N2xCB4856_598RIAILs_gen.csv",
+                                      header = T))
+load("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Ancillary/marker_pos_conversion.Rda")
+
+temp_genos <- do.call(cbind, lapply(genos[,4:ncol(genos)], function(x){
+  temp <- data.frame(gen = x)
+  temp <- dplyr::mutate(temp, num = ifelse(gen =="AA",1,
+                                           ifelse(gen=="AB",0,NA)))
+  temp <- dplyr::select(temp, -gen)
+}))
+
+riail_genotypes <- data.frame(genos[,1:3], temp_genos)
+colnames(riail_genotypes) <- c("id","chr","CM",seq(1,ncol(riail_genotypes)-3))
+
+riail_genotypes <- left_join(riail_genotypes, conv, by = "id")
+
+link.pheno <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/RIAIL_phenotypes_etop_amsa.csv")
+
+# Get the cross object
+data("N2xCB4856cross")
+cross <- N2xCB4856cross
+
+# Get the phenotype data
+pheno <- link.pheno%>%
+  dplyr::filter(grepl("amsa",condition))%>%
+  dplyr::filter(trait == "f.L1")
+
+
+link.maps <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/RIAIL_annotatedLODs_amsa_fL1.csv")
+
+
+man_df <- data.frame(gwas.pois) %>%
+  dplyr::filter(!grepl("Mt",marker), log10p !=0)%>%
+  dplyr::filter(trait %in% c("amsacrine_f.l1"))%>%
+  group_by(trait)%>%
+  mutate(newBF = -log10(.05/n()))%>% # redfinfe BF and threshold to be at BF for plot
+  mutate(newabove = ifelse(log10p > newBF, 1, 0))%>%
+  dplyr::select(-BF,-aboveBF)%>%
+  dplyr::rename(BF=newBF,aboveBF=newabove)%>%
+  manplot1()
+
+
+amsa_gwas <- man_df[[1]] + 
+              scale_y_continuous(breaks=c(0,2,4,6,8), 
+                               labels = c("0","2","4","6","8"),
+                               limits = c(0,7))+ 
+              theme(axis.text.x = ggplot2::element_text(size = 0, face = "bold", color = "black"),
+                    axis.title.x = ggplot2::element_text(size = 0, face = "bold", color = "black"),
+                    axis.title.y = ggplot2::element_text(face="bold"),
+                    plot.title =  ggplot2::element_text(size=0))+
+  labs(y=expression(-log[10](p)))
+
+amsa <- dplyr::filter(data.frame(link.maps), trait == "amsacrine.f.L1")
+amsa_link_pl <- maxlodplot1(data.frame(amsa))+
+        ggplot2::theme(axis.text.x = ggplot2::element_text(size = 10, face = "bold", color = "black"), 
+                                             axis.text.y = ggplot2::element_text(size = 10, face = "bold", color = "black"),
+                                             axis.title.x = ggplot2::element_text(size = 0,face = "bold", color = "black", vjust = 2),
+                                             axis.title.y = ggplot2::element_text(size = 10, face = "bold", color = "black"),
+                                             strip.text.x = ggplot2::element_text(size = 10,  face = "bold", color = "black"),
+                                             strip.text.y = ggplot2::element_text(size = 10, face = "bold", color = "black"), 
+                                             plot.title = ggplot2::element_text(size = 0, face = "bold", vjust = 1), 
+                                             legend.position = "none",  panel.background = ggplot2::element_rect(color = "black",  size = 1),
+                                             strip.background = ggplot2::element_rect(color = "black",size = 1)) 
+
+
+ggdraw() +
+  draw_plot(amsa_gwas, 0, .48, 1, .52) +
+  draw_plot(amsa_link_pl+ theme( strip.background = element_blank(),
+   strip.text.x = element_blank()), 0.012, 0, 1-0.016, .525) +
+  draw_plot_label(c("A", "B"), c(0, 0), c(1, .53), size = 16)
+
+ggsave(filename = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS9_amsacrine_gwas_linkage.tiff",
+       width = 7,
+       height = 3.5)
+```
+
+# Figure S10 - XK swap
+
+```{r}
+swap_theme <-   theme(axis.text.x = element_text(size=14, face="bold", color="black"),
+        axis.text.y = element_text(size=14, face="bold", color="black"),
+        axis.title.x = element_text(size=0, face="bold", color="black", vjust=-.3),
+        axis.title.y = element_text(size=16, face="bold", color="black"),
+        strip.text.x = element_text(size=24, face="bold", color="black"),
+        strip.text.y = element_text(size=16, face="bold", color="black"),
+        plot.title = element_text(size=16, face="bold", vjust = 1),
+        legend.position="none",
+        panel.background = element_rect( color="black",size=1.2),
+        strip.background = element_rect(color = "black", size = 1.2),
+        panel.border = element_rect( colour = "black"))
+
+regressed <- data.table::fread("~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/Raw_Data/CRISPR_swap_regress_phenotype.csv")
+
+# # # Prune based on bins
+# bamfpruned <- bamf_prune(biopruned, drop = TRUE)%>%
+#   tidyr::unite(well, condition,row,col,sep="",remove = F)
+
+# Regress out the effect of assay first
+# assayregressed <- regress(bamfpruned, assay = FALSE)
+
+test <- regressed%>%
+  dplyr::filter( trait == "median.TOF", condition == "XK469")%>%
+  group_by(strain)%>%
+  mutate(med= median(phenotype) )%>%
+  mutate(med1 = med+ 2*IQR(phenotype),
+         allele = ifelse(strain %in% c("CB4856", "ECA400", "ECA401", "ECA402" ), "M797", "Q797"))%>%
+    dplyr::group_by(strain)%>%
+  dplyr::mutate(mph = mean(phenotype),
+                sph = sd(phenotype))%>%
+  dplyr::filter(phenotype <= 2*sph+mph,
+                phenotype >= mph-2*sph)
+
+aov_res <- aov(test$phenotype ~ test$strain)
+summary(aov_res)
+TukeyHSD(aov_res)
+
+# keeping 402 and 547 because they looked the best
+test <- regressed%>%
+  dplyr::filter( trait == "q75.TOF", condition == "XK469")%>%
+  group_by(strain)%>%
+  mutate(med= median(phenotype) )%>%
+  mutate(med1 = med+ 2*IQR(phenotype),
+         allele = ifelse(strain %in% c("CB4856", "ECA400", "ECA401", "ECA402" ), "M797", "Q797"))%>%
+    dplyr::group_by(strain)%>%
+  dplyr::mutate(mph = mean(phenotype),
+                sph = sd(phenotype))%>%
+  dplyr::filter(phenotype <= 2*sph+mph,
+                phenotype >= mph-2*sph)
+
+ggplot(test)+
+  aes(x = factor(strain, levels = c("N2", "CB4856", "ECA401", "ECA402","ECA547", "ECA548")), 
+      y = phenotype, 
+      fill = factor(strain, levels = c("N2", "CB4856", "ECA401", "ECA402","ECA547", "ECA548")))+
+  scale_fill_manual(values=c("orange","blue","gray50","gray50"))+
+  geom_jitter(width=.25, size =1, alpha=.7)+
+  geom_boxplot(outlier.colour = NA, alpha=.7)+
+  scale_x_discrete(labels = c("Bristol\n Q797","Hawaii\n M797","Bristol\n M797", "Hawaii\n Q797"))+
+  theme_bw()+
+  swap_theme+
+  labs( y = "Animal Length")+
+  theme(axis.text.x = element_text(size=14, face="bold", color="black"))
+
+ggsave(filename = "~/Dropbox/AndersenLab/LabFolders/Stefan/Manuscripts/20160105_Top2/PLoS-Genetics_Submission/FS10_XK-swap.tiff",
+       width = 7,
+       height = 3.5)
+```
+

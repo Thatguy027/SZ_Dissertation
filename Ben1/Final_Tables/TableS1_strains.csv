@@ -1,0 +1,12 @@
+Strain Name,Genetic background,Genotype,Description,Experiments
+PTM229,N2,dpy-10(kah81),strain contains a barcode signature in the dpy-10 gene,the strain used as reference in competition assay
+ECA880,N2,ben-1 (ean62[588 C>G]),the strain only contains the silent mutation in the Cas9 protospacer-adjacent motif (PAM) which was used to generate the F200Y allele swap in ben-1,used in HTA as control for the F200Y allele swap
+ECA881,N2,ben-1 (ean63[588 C>G]),the strain only contains the silent mutation in the Cas9 protospacer-adjacent motif (PAM) which was used to generate the F200Y allele swap in ben-1,used in HTA as control for the F200Y allele swap
+ECA882,N2,ben-1 (ean64),the strain contains a _ 1 kb deletion in the ben-1 ORF,used in the HTA  
+ECA883,N2,ben-1 (ean65),the strain contains a _ 1 kb deletion in the ben-1 ORF,used in the HTA  
+ECA884,N2,ben-1 (ean66),the strain contains a _ 1 kb deletion in the ben-1 ORF,used in the HTA and competiton assay
+ECA917,N2,"ben-1 (ean98[599 T>A, 588 C>G])",the strain contains the silent mutation in the Cas9 protospacer-adjacent motif (PAM) and the F200Y allele swap in ben-1,used in the HTA and competiton assay
+ECA918,N2,"ben-1 (ean99[599 T>A, 588 C>G])",the strain contains the silent mutation in the Cas9 protospacer-adjacent motif (PAM) and the F200Y allele swap in ben-1,used in the HTA  
+ECA919,N2,"ben-1 (ean100[599 T>A, 588 C>G])",the strain contains the silent mutation in the Cas9 protospacer-adjacent motif (PAM) and the F200Y allele swap in ben-1,used in the HTA  
+ECA920,N2,"ben-1 (ean101[599 T>A, 588 C>G])",the strain contains the silent mutation in the Cas9 protospacer-adjacent motif (PAM) and the F200Y allele swap in ben-1,used in the HTA  
+ECA921,N2,"ben-1 (ean102[599 T>A, 588 C>G])",the strain contains the silent mutation in the Cas9 protospacer-adjacent motif (PAM) and the F200Y allele swap in ben-1,used in the HTA  

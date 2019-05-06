@@ -1,0 +1,17 @@
+trait_b	trait_a	trait_cor
+mean.norm.EXT	mean.norm.EXT	1
+mean.norm.yellow	mean.norm.EXT	0.832981704558054
+mean.TOF	mean.norm.EXT	0.90681195576084
+norm.n	mean.norm.EXT	0.799364386813852
+mean.norm.EXT	mean.norm.yellow	0.832981704558054
+mean.norm.yellow	mean.norm.yellow	1
+mean.TOF	mean.norm.yellow	0.862120859074041
+norm.n	mean.norm.yellow	0.659932484329516
+mean.norm.EXT	mean.TOF	0.90681195576084
+mean.norm.yellow	mean.TOF	0.862120859074041
+mean.TOF	mean.TOF	1
+norm.n	mean.TOF	0.844368082047546
+mean.norm.EXT	norm.n	0.799364386813852
+mean.norm.yellow	norm.n	0.659932484329516
+mean.TOF	norm.n	0.844368082047546
+norm.n	norm.n	1
