@@ -1,0 +1,219 @@
+CLUSTAL 2.1 multiple sequence alignment
+
+
+K12D12.1_top2                MSDSDSEFSIEDSPKKKTAPKKEKASPKKKKDDANESMVMTEEDRNVFTS
+K12D12.1_top2_sensitive      MSDSDSEFSIEDSPKKKTAPKKEKASPKKKKDDANESMVMTEEDRNVFTS
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              --------------------MHRLRVLRHLKFCISTSHRTTVVLKNTRSF
+                                                                               
+
+K12D12.1_top2                IDKKGGGSKQMAIEDIYQKKSQLEHILLRPDTYIGSVEHTEKTPMWVYNM
+K12D12.1_top2_sensitive      IDKKGGGSKQMAIEDIYQKKSQLEHILLRPDTYIGSVEHTEKTPMWVYNM
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              CNNIPSTSFASEAAAKYEKKSPTEHVLLRPDTYIGGVAMREDQIIWLRDS
+                                                                               
+
+K12D12.1_top2                EESKLEQRDISYVPGLYKIYDEILVNAADNKQRDPKMNTIKITINKEKNE
+K12D12.1_top2_sensitive      EESKLEQRDISYVPGLYKIYDEILVNAADNKQRDPKMNTIKITINKEKNE
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              ENRKMIAKEVTYPPGLLKIFDEILVNAADNKARDSSMNRLEVWLDRETAR
+                                                                               
+
+K12D12.1_top2                ISVYNNGKGIPVTQHKVEKVYVPELIFGTLLTSSNYNDDEKKVTGGRNGY
+K12D12.1_top2_sensitive      ISVYNNGKGIPVTQHKVEKVYVPELIFGTLLTSSNYNDDEKKVTGGRNGY
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              ISVWNNGSGLPVEIHPTEGIYVPTLVFGNLFTSSNYDDSEIKTVGGRNGY
+                                                                               
+
+K12D12.1_top2                GAKLCNIFSTKFTLETSSRDYKSAFKQTWIKNMTRD---EEPKIVKSTDE
+K12D12.1_top2_sensitive      GAKLCNIFSTKFTLETSSRDYKSAFKQTWIKNMTRD---EEPKIVKSTDE
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              GAKLCNIFSKEFIVETVDTRIKRRFRQKWYDNMKKCNEAEVVEILDETVK
+                                                                               
+
+K12D12.1_top2                DFTKITFSPDLAKFKMKELDDDICHLMARRAYDVAGSS-KGVAVFLNGKR
+K12D12.1_top2_sensitive      DFTKITFSPDLAKFKMKELDDDICHLMARRAYDVAGSS-KGVAVFLNGKR
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              DYTKVEFVPDLERFQIDKLSDDVIDLIGRRVFEVAATLPRDVDVYLNGQK
+                                                                               
+
+K12D12.1_top2                IPIKGFEDYVQMYTS-QFNNEGEPLKIAYEQVGDRWQVALALSEKGFQQV
+K12D12.1_top2_sensitive      IPIKGFEDYVQMYTS-QFNNEGEPLKIAYEQVGDRWQVALALSEKGFQQV
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              CDVDGFEDYVKMFNDSSSLLFLHPTPRWHVGVAKRNNFFGESHVVLPKIV
+                                                                               
+
+K12D12.1_top2                SFVNSIATTKGGRHVDYVADQMVAKFIDSIKRKLTKTSMNIKPFQIKNHM
+K12D12.1_top2_sensitive      SFVNSIATTKGGRHVDYVADQMVAKFIDSIKRKLTKTSMNIKPFQIKNHM
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              SFVNNINTEKGGSHVDYVMDKIVNIIKPIVDSKLGDPTKSVKPAVIKNNL
+                                                                               
+
+K12D12.1_top2                WVFVNCLIENPTFDSQTKETMTLQQKQFGSTCVLSEKFSKAASSVGITDA
+K12D12.1_top2_sensitive      WVFVNCLIENPTFDSQTKETMTLQQKQFGSTCVLSEKFSKAASSVGITDA
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        --------------------------------------MSEEDRNVFTSI
+R05D3.12a_chIII              SIFINCLIENPSFESQTKETLTTKAKNFG-SIFECDAKKTAEWAEQSGLI
+                                                                               
+
+K12D12.1_top2                VMSWVRFKQMDDLNKKCSKTKTSKLKGIPKLEDANDAGTK-NSQQCTLIL
+K12D12.1_top2_sensitive      VMSWVRFKQMDDLNKKCSKTKTSKLKGIPKLEDANDAGTK-NSQQCTLIL
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        DKKGGGSKQMDDLNQKCPKRKTSKLKGIPKLEDANDAGTK-NSQQCTLIL
+R05D3.12a_chIII              EDIVEEVLNMKKKKLPGKRVSVSSVRDIVKLEDAEWAGITGTAEKCTLIL
+                                                                               
+
+K12D12.1_top2                TEGDSAKTLAVSGLSVVGRDKYGVFPLRGKLLNVREGNMKQIADNAEVNA
+K12D12.1_top2_sensitive      TEGDSAKTLAVSGLSVVGRDKYGVFPLRGKLLNVREGNMKQIADNAEVNA
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        TEGDSAKTLAVSGLSVVGRDKYGVFPFRRKLLNVCDLNVNQIADSAEVNA
+R05D3.12a_chIII              TEGDSAKALALAGLEVLGRETYGVFPLKGKLLNVSNLDDARASKNEEISN
+                                                                               
+
+K12D12.1_top2                MIKILGLQYKKKYETEDDFKTLRYGKLMVMADQDQDGSHIKGLVINFIHH
+K12D12.1_top2_sensitive      MIKILGLQYKKKYETEDDFKTLRYGKLMVMADQDQDGSHIKGLVINFIHH
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        IIKILGLQYTKKYETEDDFKTLRYGKLLIMANHDSDGSQFKGLLLNFFHR
+R05D3.12a_chIII              LLRILGLKFEDSNSITR--ESLRYGRLLILADQDEDGSHIKGLIVNFIHK
+                                                                               
+
+K12D12.1_top2                FWPSLIQRN-FVEEFITPIVKATKGKEEVSFYSLPEYSEWRMNTDNWKSY
+K12D12.1_top2_sensitive      FWPSLIQRN-FVEEFITPIVKATKGKEEVSFYSLPEYSEWRMNTDNWKSY
+Y46H3C.4_chV                 --------------------------------------------------
+cin-4                        FWPALFKRD-FVEDFITPIAKATEGKEEVSFYSLPEYSEWRMNTDNWKSY
+R05D3.12a_chIII              FWPSLVHTDGFIQSFRTPLLKAKKGDKVRSFFSMNEYRKWADVEEGGK-W
+                                                                               
+
+K12D12.1_top2                KIKYYKGLGTSTSKEAKEYFLDMVRHRIRFKYNGADDDNAVDMAFSKKKI
+K12D12.1_top2_sensitive      KIKYYKGLGTSTSKEAKEYFLDMVRHRIRFKYNGADDDNAVDMAFSKKKI
+Y46H3C.4_chV                 ----------------------MDRHRIRFKYNGAD---AIDMVFSKKKS
+cin-4                        TIKYYNGLGTLTSKEAKKCFSDMVRHRIRFKYNGADDDKAVNMAFSKKKI
+R05D3.12a_chIII              KIKYYKGLGTSTSNEAREYFSDLDHHTVNFKYTGTTDDDAIRMAFDRDKS
+                                                   : :* :.***.*:    *: *.*.:.* 
+
+K12D12.1_top2                EERKDWLSKWMREKKDRKQQGLAEEYLYNKDTRFVTFKDFVNRELVLFSN
+K12D12.1_top2_sensitive      EERKDWLSKWMREKKDRKQQGLAEEYLYNKDTRFVTFKDFVNRELVLFSN
+Y46H3C.4_chV                 EERKDWLSKWMREKKDRKQQGLAEEYLYDKDTRFVTFKDFVNRELVLFSN
+cin-4                        EARTDYLMKLMQDKNQRKQQGLAEECLYNKETRFVTLKDFFNYEIVCSWN
+R05D3.12a_chIII              DERKEWIRRSENEITNE-----------DDGKTEISYQEFVDGQLMQFGM
+                             : *.::: :  .: .:.           :. .  :: ::*.: :::    
+
+K12D12.1_top2                LDNERSIPCLVDGFKPGQRKVLFACFKRADK-REVKVAQLAGAVAEISAY
+K12D12.1_top2_sensitive      LDNERSIPCLVDGFKPGQRKVLFACFKRADK-REVKVAQLAGAVAEISAY
+Y46H3C.4_chV                 LDNERSIPCLVDGFKPGQRKVLFACFKRSDK-HGVKVAQLAGGVADMSAY
+cin-4                        LH---SIPCLVDGLKPGQRKVLFACFKRANK-REVKVAQLAGAVAEISAY
+R05D3.12a_chIII              VDLKRSIPSLIDGLKPSQRKILWTLLNNMDESTEIKVSQLAGAVAHRQSY
+                             :.   ***.*:**:**.***:*:: ::. ::   :**:****.**. .:*
+
+K12D12.1_top2                HHGEQSLMGTIVNLAQDYVGSNNINLLLPIGQFGTRLQGGKDSASARYIF
+K12D12.1_top2_sensitive      HHGEMSLMGTIVNLAQDYVGSNNINLLLPIGQFGTRLQGGKDSASARYIF
+Y46H3C.4_chV                 HHGEQSLMTTIVHLAQDY--------------------GGKDSASAQYIF
+cin-4                        HHGEQSLMGTIVNLAQDYVGSHNINLLLPIGQFGTRLQGGKDSASARSIF
+R05D3.12a_chIII              HHGEESLVRTIIRMGQTFCGSSNLPLLQPIGQFGTRHEGGNDAASARYIF
+                             **** **: **:.:.* :                    **:*:***: **
+
+K12D12.1_top2                TQLSPVTRTLFPAHDDNVLRFLYEENQRIEPEWYCPIIPMVLVNGAQGIG
+K12D12.1_top2_sensitive      TQLSPVTRTLFPAHDDNVLRFLYEENQRIEPEWYCPIIPMVLVNGAQGIG
+Y46H3C.4_chV                 TQLSPVTRTLFPSHDDNVLRFLYEENQRIEPEWYCPISPMVLVNGAQGID
+cin-4                        AQLSQVTRTLFPAHDDNVLRFLYEENQRIEPEWYCPIIPMVLVNGAQGTG
+R05D3.12a_chIII              TALAPTTRLLFPQADDDLLQKNVEEGMVVEPTWLCPIVPLILINGTEGIG
+                             : *: .** ***  **::*:   **.  :** * *** *::*:**::* .
+
+K12D12.1_top2                TGWSTNIPNYNPRELVKNIKRLIAGE-PQKALAPWYKNFRGKIIQIDPSR
+K12D12.1_top2_sensitive      TGWSTNIPNYNPRELVKNIKRLIAGE-PQKALAPWYKNFRGKIIQIDPSR
+Y46H3C.4_chV                 TGWRTNIPNYNPRELVKNIKRLIAGE-PQKALAPWYKNFRGKIIQIDPRR
+cin-4                        TGWSTNIPNYNPRELVKNIKRLIAGE-PQKALAPWYKNFRGKIIQIDPSR
+R05D3.12a_chIII              TGWSTKIANRNPIDIIDMIRRKIDSISTEYEIPPFYEEFRGKLEVVTPTK
+                             *** *:*.* ** :::. *:* * .  .:  :.*:*::****:  : * :
+
+K12D12.1_top2                FACYGEVAVLDDNTIEITELPIKQWTQDYKEKVLEGLMESSDKKSPV-IV
+K12D12.1_top2_sensitive      FACYGEVAVLDDNTIEITELPIKQWTQDYKEKVLEGLMESSDKKSPV-IV
+Y46H3C.4_chV                 FACYGEVA------------------------------------------
+cin-4                        FACYGEVSVLDDNTIEITELPIKQWTQDYKEKVLEGLMESSDKKSPV-IV
+R05D3.12a_chIII              FISSGKIQLIRPERKNASTFSIEIVELPIGIWTSKYKEKLSKIVETLPVL
+                             * . *::                                           
+
+K12D12.1_top2                DYKEYHTDTTVKFVVKLSPGKLRELERGQDLHQVFKLQAVINTTC-MVLF
+K12D12.1_top2_sensitive      DYKEYHTDTTVKFVVKLSPGKLRELERGQDLHQVFKLQAVINTTC-MVLF
+Y46H3C.4_chV                 ------------------------------------LQSVICMSS-MVLF
+cin-4                        DYKEYHTDTTVKFVVKLSPGKLRELERGQDLHQVFKLQAVINTTC-MVLF
+R05D3.12a_chIII              EFSERHTEKRVHFRITLDRKKSSRFLQKSNSDLLNYFKLRTSLTENRVLF
+                                                                 ::     :   ***
+
+K12D12.1_top2                DAAGCLRTYTSPEAITQEFYDSRQEKYVQRKEYLLGVLQAQSKRLTNQAR
+K12D12.1_top2_sensitive      DAAGCLRTYTSPEAITQEFYDSRQEKYVQRKEYLLGVLQAQSKRLTNQAR
+Y46H3C.4_chV                 DAAGCLRTSTSPEAITQEFYDSRQEKYLQRKEYLLEVLQAQSKRLTNQAR
+cin-4                        DAAGWLRTYTSPEAITQEFYDSRQEKYVQRKEYLLGVLQAQSKRLTNQAR
+R05D3.12a_chIII              DRNGELKEFGNISEIAAEFFEVRRDLYEKRLKIQKEECEAKLIYVENQLN
+                             *  * *:   . . *: **:: *:: * :* :      :*:   : ** .
+
+K12D12.1_top2                FILAKINNEIVLENKKKAAIVDVLIKMKFDADPVKKWKEEQKLKELRESG
+K12D12.1_top2_sensitive      FILAKINNEIVLENKKKAAIVDVLIKMKFDADPVKKWKEEQKLKELRESG
+Y46H3C.4_chV                 FILAKINKEIVFENKKKVAIVDDLIKMGFDADPVKKWKEEQKLK-LRESG
+cin-4                        FILATINNKIVLENKKKTAIVDVLIKMKFDADPVKKWKEDQKLKELRESG
+R05D3.12a_chIII              FIEMVTNGTIEIRSMGRNQLEEKLQEMGFRVDPMATIAKN----------
+                             **    *  * :..  :  : : * :* * .**: .  ::          
+
+K12D12.1_top2                EIELDEDDLAAVAVEEDEAISSAAKAVETKLSDYDYLVGMALIKLSEEEK
+K12D12.1_top2_sensitive      EIELDEDDLAAVAVEEDEAISSAAKAVETKLSDYDYLVGMALIKLSEEEK
+Y46H3C.4_chV                 --EMDEDDLATVAVEDDEGVSSAAKAVETKLSGYEYLFGMTILDVSEEET
+cin-4                        EIELDEDDLAAVAVEEGEDISSAAKAVETKLSDYDYLVGLALIKLSEEEK
+R05D3.12a_chIII              ----------------------------SKKANYGYLLEMPVSRLTSDEM
+                                                         :* :.* **. :.:  ::.:* 
+
+K12D12.1_top2                NKLIKESEEKMAEVRVIEKKTWQDLWHEDLDNFVSELDKQEAREKADQDA
+K12D12.1_top2_sensitive      NKLIKESEEKMAEVRVIEKKTWQDLWHEDLDNFVSELDKQEAREKADQDA
+Y46H3C.4_chV                 NKLINESEEKMTELRVLKKKTWQDLWHEDLDNFLSELDKQEARERGDQDA
+cin-4                        NKLIKESEEKMAEVRVLEKKTWQDLWITDLDNFMSELTS-----------
+R05D3.12a_chIII              KRLEERKSRRRTELEAAESADWKSVWRSELD-------------------
+                             ::* :....: :*:.. :.  *:.:*  :**                   
+
+K12D12.1_top2                SIKNAAKKLAADAKTGRGPKKNVCTEVLPSKDGQRIEPMLDAATKAKYEK
+K12D12.1_top2_sensitive      SIKNAAKKLAADAKTGRGPKKNVCTEVLPSKDGQRIEPMLDAATKAKYEK
+Y46H3C.4_chV                 MLENAVKKLAADAKSGRGSTKNVCPEVLPSKDGHRIEPRFDAATKAKYEK
+cin-4                        ------RRLARKLSLRRTATR-------------------------WYAM
+R05D3.12a_chIII              -------KLAEAVGNNRKS-------------------------------
+                                    :**      * .                               
+
+K12D12.1_top2                MSQPKKERVKKEPKEPKEPKKVKKEGQDIKKFMSPAAPKTAKKEKSDGFN
+K12D12.1_top2_sensitive      MSQPKKERVKKEPKEPKEPKKVKKEGQDIKKFMSPAAPKTAKKEKSDGFN
+Y46H3C.4_chV                 MTQPKRERVKKEPKK-----------------------------------
+cin-4                        ICQRR---------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+                                                                               
+
+K12D12.1_top2                SDMSEESDVEFDEGIDFDSDDDGVEREDVVSKPKPRTGKGAAKAEVIDLS
+K12D12.1_top2_sensitive      SDMSEESDVEFDEGIDFDSDDDGVEREDVVSKPKPRTGKGAAKAEVIDLS
+Y46H3C.4_chV                 --LAWQADCDDDVGVTSD--------EEVIRKPKPRAERRAAKKPAVEA-
+cin-4                        --VTWSS-MKESIS---------------IRTMTVWSVRMSSRS------
+R05D3.12a_chIII              --------------------------------------------------
+                                                                               
+
+K12D12.1_top2                DDDEVPAKKPAPAKKAAPKKKKS-EFSDLSGGDSDEEAEKKPSTSKKPSP
+K12D12.1_top2_sensitive      DDDEVPAKKPAPAKKAAPKKKKS-EFSDLSGGDSDEEAEKKPSTSKKPSP
+Y46H3C.4_chV                 -----------PAKKAEPKKKKNNKLYDMSGGESADDVGEK---------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+                                                                               
+
+K12D12.1_top2                KKAAPKTAEPKSKAVTDFFGASKKNGKKAAGSDDEDDESFVVAPREKSGR
+K12D12.1_top2_sensitive      KKAAPKTAEPKSKAVTDFFGASKKNGKKAAGSDDEDDESFVVAPREKSGR
+Y46H3C.4_chV                 -----------------------------EGSDNG---------------
+cin-4                        --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+                                                                               
+
+K12D12.1_top2                ARKAPPTYDVDSGSDSDQPKKKRGRVVDSDSD
+K12D12.1_top2_sensitive      ARKAPPTYDVDSGSDSDQPKKKRGRVVDSDSD
+Y46H3C.4_chV                 --------SVGSG-------------------
+cin-4                        --------------------------------
+R05D3.12a_chIII              --------------------------------
+                                                             

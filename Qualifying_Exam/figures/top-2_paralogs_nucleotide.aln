@@ -1,0 +1,653 @@
+CLUSTAL 2.1 multiple sequence alignment
+
+
+cin-4                        --------------------------------------------------
+top-2                        ATGAGCGACTCTGATAGTGAATTCTCTATCGAAGATTCACCCAAGAAGAA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        AACCGCACCAAAGAAGGAGAAGGCGTCACCGAAGAAAAAGAAAGATGATG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              ----------ATGCATCGATTACGGGTTCTACGTCACTTGAAGTTCTGCA
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        CCAACGAGTCGATGGTTATGACTGAAGAGGACCGCAATGTGTTCACGTCG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TTTCCACGTCACATAGGACTACTGTAGTTTTAAAAAATACTCGTTCATTT
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        ATCGACAAAAAAGGTGGTGGCTCGAAACAAATGGCGATCGAGGATATCTA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TGTAATAATATTCCTTCTACTAGTTTTGCTTCTGAGGCTGCAGCAAAATA
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        CCAAAAGAAGTCCCAACTCGAGCACATTCTTCTTCGCCCGGACACCTACA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TGAAAAGAAAAGTCCAACTGAACATGTATTACTTCGACCCGATACATATA
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        TCGGTTCGGTCGAGCATACCGAGAAGACGCCGATGTGGGTCTACAACATG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TTGGAGGTGTCGCCATGCGAGAAGATCAAATTATTTGGCTCAGAGACTCA
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GAGGAGAGCAAGCTGGAGCAGCGTGACATCTCATACGTGCCGGGACTCTA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              GAAAATAGAAAAATGATTGCAAAAGAAGTCACTTATCCACCTGGATTATT
+chr_III_random_homology      ------------------------------------------AGAACCT-
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        CAAGATTTATGATGAAATTCTTGTGAATGCCGCTGACAACAAACAGAGAG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              GAAGATTTTCGATGAGATTCTAGTGAATGCGGCTGATAATAAAGCAAGAG
+chr_III_random_homology      --AGGTACAGGCCAGAAACGCAGCCGTCGTTCGAAAAACCGCCGTAAAAA
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        ATCCGAAGATGAACACAATCAAGATCACCATCAATAAGGAGAAAAATGAG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              ATTCCAGTATGAATCGGTTGGAAGTATGGTTAGATAGAGAAACCGCACGA
+chr_III_random_homology      CTACGACCGTAGAACTAGTCGAAAGAGCGTTCGGAGGACAGACAGGTTGA
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        ATCTCTGTCTACAACAATGGCAAAGGAATCCCAGTCACTCAGCA-CAAAG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              ATATCGGTATGGAATAACGGAAGCGGACTTCCAGTGGAAATTCA-TCCAA
+chr_III_random_homology      GTCTGTGCTT-CAACA--GGTCTAGGAGTACGGTTTCTAGAACGGTCCAG
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        TGGAGAAAGTCTACGTCCCAGAGCTGATTTTTG-GAACTCTTCTAACATC
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              CCGAAGGAATTTATGTTCCAACGCTTGTCTTTG-GAAATTTATTCACTTC
+chr_III_random_homology      AAGAAGAGCTCTTGAGCTTGGAGTCGGTAGAAGAGGAGGCTAAGGAACTA
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        TTCTAACTACAATGACGATGAGAAGAAAGTGACGGGAGGACGCAACGGAT
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              ATCAAATTATGATGATTCTGAAATTAAAACAGTTGGTGGAAGAAATGGAT
+chr_III_random_homology      CTCGAATAAGAA-------GAGAAGAAGGCTTTCGAACTACTC--TCGGT
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        ATGGAGCAAAGCTTTGCAACATCTTCTC-CACAAAATTCACTCTGGAGAC
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              ATGGTGCAAAACTTTGTAATATTTTCTC-AAAGGAATTTATCGTTGAAAC
+chr_III_random_homology      AAGGCTGTTCCATTAGCATCAGACTATCGAACCAAAGTTGCC--GGAAGC
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GTCTTCACGGGATTACAAAAGTGCATTCAAGCAAACGTGGATCAAAAACA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AGTGGATACAAGAATAAAACGACGGTTTAGACAGAAATGGTATGACAATA
+chr_III_random_homology      GTCGTCTCCTTTACCGAAGCAGGAG---AAGCTACCGCTGTCGTCGATCT
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        TGACGCGTGATGAGGAGCCGAAGATTGTTAAGAGC---------ACCGAC
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TGAAAAAGTGTAATGAGGCGGAAGTTGTCGAGATTTTAGATGAAACAGTC
+chr_III_random_homology      AGTAGAAGCAGGTCGAGCTAAAGAGGTCTAAGTGCTTCGAACTCGAAAAC
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GAAGACTTCACGAAGATCACATTCTCGCCGGATCTGGCAAAGTTCAAGAT
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AAAGACTACACTAAAGTCGAATTTGTTCCTGATCTTGAACGTTTCCAAAT
+chr_III_random_homology      GAGG-----AGGAAGGTGAAGAAGTGACCTAGTC----GTAGTTTTGGGT
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GAAGGAGCTGGACGATGACATCTGCCATTTGATGGCTCGGCGTGCGTATG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AGATAAACTCTCCGATGACGTCATCGATCTTATCGGAAGACGTGTATTTG
+chr_III_random_homology      AAA--ACTAGTTTAGTAGCTGTTACCGGTGGA-AGAAGAATAAGAGCTT-
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        ATGTGGCTGGATCCAGTAAAGGAG---TCGCCGTGTTCCTCAATGGAAAA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AAGTTGCTGCAACTCTTCCACGAGATGTTGATGTTTACCTAAATGGCCAA
+chr_III_random_homology      ATGTTAGAGAAACAACTAGAACCGCTCTTACTTTGCTC------GGACCA
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        CGAATTCCAATCAAAGGATTCGAGGACTACGTCCAAATGTACACTTCGCA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AAATGTGATGTAGACGGATTCGAAGATTATGTAAAAATGTTCAATGACTC
+chr_III_random_homology      ATCACTCTGCGAACGAGACTCG--GACTTCTTGAGGCTCCTCCATGAAGA
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GTTCAACAATGAAGGAGAACCCCTCAAGATCGCATACGAGCAAGTTGGAG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TTCGTCTCTTCTATTTCTTCATCCAACACCTCGATGGCATGTGGGCGTGG
+chr_III_random_homology      AAGAGACGTCCATGAAGAGAACCGC-TGATAGCATCTTGAGAACTCATTA
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        ATCGTTGGCAAGTCGCCTTGGCTCTTTCGGAAAAAGGCTTCCAACAAGTG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              CCAAACGGAATAATTTCTTTGGAGAATCTCATGTGGTCCTTCCGAAAATT
+chr_III_random_homology      ACGGAGACCACTTTACATCCACGCTTCT----GTAGGCCGTCGTAGCTTT
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        TCA---TTTGTCAACAGTATTGCTACCACAAAAGGAGGACGGCACGTGGA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              GTTAGCTTCGTGAATAATATCAACACGGAGAAAGGGGGAAGCCACGTGGA
+chr_III_random_homology      TCATGGTACCTCGAGCACGTT--TACTATCTAACCTCGAC--CTCGTGAA
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        CTACGTGGCTGATCAGATGGTCGCCAAGTTCATCGACTCGATCAAGCGGA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TTATGTGATGGATAAAATAGTGAATATTATCAAGCCAATCGTAGATTCAA
+chr_III_random_homology      CTACTTCAAGGACTGA-----CGCGAGGTTAAGTGCTTCAAAAGGACCGT
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        AGCTCACAAAGACGTCGATGAATATCAAGCCATTCCAGATCAAAAATCAC
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AGTTAGGAGATCCTACGAAAAGTGTGAAACCAGCAGTTATCAAGAATAAT
+chr_III_random_homology      GGTC--GAAGTGCTGCTTGAATTGTCAACATAGACACACTTAGAGGAC--
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        ATGTGGGTTTTTGTGAATTGCTTGATCGAAAATCCGACATTCGACTCCCA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TTGTCTATATTTATCAATTGTCTCATTGAAAATCCATCTTTTGAAAGTCA
+chr_III_random_homology      -CATCAGTTGCTATTGTCCGCCAAA--GAAGAGCAGGC--TCGAGAGGTA
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GACGAAAGAGACTATGACCCTGCAGCAGAAGCAGTTCGGATCGACCTGCG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AACTAAAGAAACTTTGACGACGAAAGCCAAGAATTTTGGATCAATTTTTG
+chr_III_random_homology      G-TTAGGGAGGTTTTGGAAGAGAAACATTAGAACTCAGG--TGAC-----
+                                                                               
+
+cin-4                        --------------ATGTCTGAAGAAGACCGAAACGT---GTTCACGTCG
+top-2                        TCCTCAGCGAGAAGTTCTCCAAAGCGGCTTCAAGTGTTGGAATCACCGAT
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              ----------AATGTGATGCGAAGAAAACAGCAGAATGGGCGGAACAGAG
+chr_III_random_homology      -----------AAACTAACCGTTG-AGCCACTAGAGTTACCACAACAGTA
+                                                                               
+
+cin-4                        ATCGACAAAAAAGGTGGTGGCTCGAAGCAAATGGACGACCTCAACCAAAA
+top-2                        GCTGTTATGAGTTGGGTTCGCTTCAAACAAATGGACGACCTCAACAAAAA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TGGATTAATAGAGGATATTGTGGAAGAAGTATTGAATATGAAAAAGAAGA
+chr_III_random_homology      GTTCGTGTC-GTTGAAGTGGTATCGTACGTTTAGCTGAGCCCAGCTAAA-
+                                                                               
+
+cin-4                        GTGCCCCAAGAGGAAGACTTCCAA-------GCTGAAGGGCATCCCAAAG
+top-2                        GTGCTCCAAGACGAAGACTTCCAA-------GCTGAAGGGCATTCCAAAG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AATTACCAGGAAAACGAGTTTCAGTGTCTTCAGTTCGAGATATTGTCAAG
+chr_III_random_homology      -CTTACTAGAAAGGCGCCTTCAAGAA-CATGGTACCTCGATTCTGAAAGA
+                                                                               
+
+cin-4                        CTCGAAGATGCGAACGACGCTGGAACCA---AAAATTCCCAACAGTGT--
+top-2                        CTTGAAGATGCCAACGACGCTGGAACCA---AAAATTCCCAACAATGC--
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              CTAGAAGACGCTGAATGGGCTGGAATTACGGGAACGGCAGAGAAGTGC--
+chr_III_random_homology      CGCCGAGCGGCCGTTAGTCCGCGAACTACAAGAGCTGCTCTAGTGCACCT
+                                                                               
+
+cin-4                        -ACATTGATTCTGACGGAGGGAGACTCGGCCAAAACGCTTGCTGTTTCGG
+top-2                        -ACATTAATTCTGACGGAGGGAGACTCGGCCAAAACGCTTGCTGTTTCGG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              -ACATTGATTCTCACAGAAGGTGATTCGGCGAAAGCTTTGGCTCTTGCCG
+chr_III_random_homology      AACATCAACCCTTACGAACACCTGGTAGGTCATGGC---------TAAGG
+                                                                               
+
+cin-4                        GACTTTCAGTCGTTGGACGCGACAAATATGGAGTATTCCCATTTCGAAGA
+top-2                        GACTTTCAGTCGTTGGACGCGACAAATATGGAGTATTCCCACTTCGAGGA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              GCTTAGAAGTTCTGGGACGTGAAACTTATGGAGTATTTCCACTGAAAGGA
+chr_III_random_homology      AACTCGAGGTAACTGCTCTTGGTAACCTT--ATTAGCCCGTTATGGTGAG
+                                                                               
+
+cin-4                        AAATTGCTAAATGTCTGCGATTTAAATGTGAATCAAATCGCCGATAGTGC
+top-2                        AAATTGCTAAATGTCCGAGAAGGAAATATGAAACAAATCGCCGATAATGC
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AAACTGTTGAACGTATCAAATCTAGATGACGCCCGTGCATCGAAGAATGA
+chr_III_random_homology      ACCGAGTTATGCGACCAAAA--GAAGTATCTCCTTTGCGTCTTGTAATAG
+                                                                               
+
+cin-4                        TGAGGTCAATGCCATCATCAAGATTCTGGGACTCCAATACACGAAGAAGT
+top-2                        TGAGGTCAATGCCATGATCAAAATTCTGGGACTCCAATACAAGAAGAAGT
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AGAAATTTCGAATCTTCTCCGAATTCTTGGATTGAAATTTGAAGATTCGA
+chr_III_random_homology      TAGCACTCGGCCCTTCTCACTTGCTCACTGACCGCTGTCAACTCACTTCT
+                                                                               
+
+cin-4                        ACGAGACAGAAGATGACTTTAAGACTCTTCGATACGGGAAATTGTTAATC
+top-2                        ACGAGACAGAAGATGACTTCAAGACTCTTCGATACGGTAAACTGATGGTC
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              ACTCAATA------ACTCGCGAGTCTCTTCGATACGGTCGACTCTTGATT
+chr_III_random_homology      ACATTGCT-----CGACTTCGTGACAG---GAAAGGTGGGACCTCTGCTC
+                                                                               
+
+cin-4                        ATGGCAAATCATGATTCAGACGGCTCTCAATTCAAAGGACTTCTGCTCAA
+top-2                        ATGGCTGATCAGGATCAAGACGGTTCACACATCAAAGGACTCGTGATCAA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TTGGCGGATCAGGATGAGGATGGCAGTCACATCAAGGGACTAATTGTTAA
+chr_III_random_homology      ATGGCTTAACAGGCTAACCTTCTTCGTCCAACTACAACAACC----TAGG
+                                                                               
+
+cin-4                        CTTCTTTCATCGCTTTTGGCCTGCGCTCTT---TAAACGCGACTTCGTCG
+top-2                        TTTCATCCATCACTTCTGGCCTTCTCTCAT---TCAGCGGAACTTCGTAG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TTTTATTCATAAATTCTGGCCAAGTCTTGTGCATACAGATGGATTCATTC
+chr_III_random_homology      TTGCATTAG--AACTCGCTCTAAGTGTTAA---CAAGGGTATTCGCTGAC
+                                                                               
+
+cin-4                        AGGATTTCATCACTCCAATTGCCAAAGCCACCGAAGGAAAAGAGGAAGTT
+top-2                        AAGAATTCATCACTCCAATTGTCAAAGCCACCAAAGGAAAAGAAGAAGTT
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              AATCATTCCGAACACCACTACTGAAAGCAAAGAAAGGAGATAAAGTTAGA
+chr_III_random_homology      AAGAGGCACTACCATGCGTCTTTATAGTCGCT------GTCGAGGTCGGT
+                                                                               
+
+cin-4                        TCGTTTTATTCGCTCCCAGAATATTCTGAGTGGAGAA-TGAATACGGATA
+top-2                        TCCTTCTATTCGCTCCCAGAATATTCTGAGTGGAGAA-TGAATACGGATA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              TCATTCTTCTCAATGAATGAATATCGGAAATGGGCAG-ATGTTGAAGAAG
+chr_III_random_homology      TAACTCGATGCAACTGGAGTACGAACAGACGAGAAAACTTCGTGCGTTTC
+                                                                               
+
+cin-4                        ACTGGAAGTCGTATACGATCAAGTACTACAACGGATTGGGGACATTGACT
+top-2                        ACTGGAAGTCGTACAAGATCAAGTACTACAAGGGATTGGGTACATCGACT
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              GAGGAAAATGG---AAAATTAAATATTATAAAGGACTTGGAACTTCAACT
+chr_III_random_homology      TCTTGGAAGGCGACAGGACCGGACTTTGGTAGGTGTTCCGTACCTTAACT
+                                                                               
+
+cin-4                        TCTAAGGAA-GCTAAGAAGTGCTTCTCGGACATGGTTCGTCATCGTATCC
+top-2                        TCTAAGGAA-GCTAAGGAATACTTCTTGGACATGGTTCGTCATCGTATCC
+Y46H3C.4_chV                 -------------------------------ATGGATCGTCATCGTATCC
+R05D3.12a_chIII              TCGAATGAA-GCAAGAGAATATTTCAGTGATTTAGATCATCATACTGTTA
+chr_III_random_homology      AGCAAGCAACACCTCTGAGCTCTTCTTCTGGTTAAGCGCTAACTGCTTTA
+                                                             *      * *     *  
+
+cin-4                        GCTTCAAGTACAACGGAGCTGATGATGATAAAGCTGTCAACATGGCTTTT
+top-2                        GCTTCAAGTACAATGGAGCTGATGATGATAACGCTGTCGACATGGCTTTC
+Y46H3C.4_chV                 GCTTCAAGTACAATGGAGCTGACG---------CTATCGACATGGTGTTT
+R05D3.12a_chIII              ATTTTAAATACACTGGAACAACAGATGATGATGCTATTCGAATGGCTTTT
+chr_III_random_homology      GAAACTTCCACTGCTTAGCTCACAGGAACAACATCTCTATAAGAAGTCGT
+                                      **     * *                      *        
+
+cin-4                        TCAAAGAAGAAGATTGA-AGCAAGGACAGACTATCTCATGAAGTTGATGC
+top-2                        TCGAAGAAGAAGATTGA-AGAGAGAAAAGACTGGCTCTCGAAGTGGATGC
+Y46H3C.4_chV                 TCGAAGAAGAAGAGTGA-GGAGAGAAAGGACTGGCTCTCGAAGTGGATGC
+R05D3.12a_chIII              GATAGAGATAAGAGTGA-CGAGAGAAAAGAATGGATCAGAAGATCAGAAA
+chr_III_random_homology      TCAGGGACGAGGAAAGACAGAAAGAAGAGGGAGTAGGTGAAGTTTTCGGT
+                                      * **  **  *  ** *  *           *  *      
+
+cin-4                        AGGATAAGAATCAAAGAAAGCAGCAGGGGCTGGCTGAAGAGTGCCTCTAC
+top-2                        GGGAGAAGAAGGACCGAAAGCAGCAGGGACTTGCTGAAGAATATCTCTAC
+Y46H3C.4_chV                 GGGAGAAGAAAGACAGAAAGCAGCAGGGACTTGCTGAAGAATATCTCTAC
+R05D3.12a_chIII              ATGAGATTA-CGAATGAAGATGATGGTAA--AACTGAAATAAGTTATCAA
+chr_III_random_homology      CAGAAAAGAGAGAA-GTTAGAAGAAGAAACTCTTTCGGTACAGCTATCGC
+                               ** *  *   *  *         *        *               
+
+cin-4                        AACAAAGAAACTCGATTTGTCACCCTAAAAGATTTCTTCAAC-TACGAAA
+top-2                        AACAAGGACACTCGATTCGTCACCTTCAAAGATTTCGTCAAT-CGTGAAT
+Y46H3C.4_chV                 GACAAGGACACTCGATTCGTCACTTTCAAGGATTTCGTCAAT-CGTGAAT
+R05D3.12a_chIII              GA------------ATTCGTTGA--TGGGCAACTTATGCAAT-T-TGGAA
+chr_III_random_homology      AATAGTAGTAGTCGAGGCAACATAAACTTAGCTTATGCTACTGCTTGGTA
+                              *            *                  *     *      *   
+
+cin-4                        TAGTTTGCTCATGGAATTT---------GCATTCAATTCCATGTCTTGTG
+top-2                        TGGTCCTCTTCTCGAATCTCGACAACGAGCGTTCAATTCCATGCCTTGTG
+Y46H3C.4_chV                 TGGTGCTCTTCTCGAATCTCGACAACGAGCGTTCAATTCCATGTCTTGTG
+R05D3.12a_chIII              TGGTCGATTTAAAAAGA---------------TCAATTCCATCTCTGATT
+chr_III_random_homology      CAGGTCCTTCATGAGGAATCGA--AGGAACCGTCAGCTACATGGATTAGG
+                               *     *                       ***  * ***   *    
+
+cin-4                        GATGGTTTGAAACCAGGACA-GCGGAAGGTTCTCTTCGCGTGCTTCAAAA
+top-2                        GATGGTTTCAAGCCAGGACA-GCGGAAGGTTCTCTTCGCGTGCTTCAAGA
+Y46H3C.4_chV                 GATGGTTTCAAGCCAGGACA-ACGGAAGGTTCTCTTCGCGTGCTTCAAGA
+R05D3.12a_chIII              GATGGTTTGAAACCATCTCA-ACGGAAGATTCTTTGGACACTTTTGAATA
+chr_III_random_homology      GAACATCATGAACTAGAATATGCCGAAGGTC-----AACAGGCACAAGCA
+                             **   *    * * *    *  * **** *        *       *  *
+
+cin-4                        GAGCAAACAAGCGT---GAAGTCAAAGTAGCTCAACTGGCTGGAGCTGTC
+top-2                        GAGCAGACAAGCGT---GAAGTCAAAGTAGCTCAATTGGCTGGAGCTGTC
+Y46H3C.4_chV                 GATCAGACAAGCAT---GGGGTCAAAGTGGCTCAATTGGCCGGAGGTGTC
+R05D3.12a_chIII              ATATGGATGAATCGACAGAAATCAAAGTATCTCAGTTGGCTGGAGCAGTT
+chr_III_random_homology      AG--AGGTGAGTCT-------CATAAGACCCTCGCTCATCTTCCTCTGAA
+                                      *              ***   ***      *       *  
+
+cin-4                        GCTGAAATTTCTGCTTACCATCACGGAGAACAGTCGCTTATGGGAACAAT
+top-2                        GCTGAAATTTCTGCTTACCATCACGGAGAACAGTCGCTTATGGGAACAAT
+Y46H3C.4_chV                 GCTGATATGTCTGCTTACCATCACGGAGAACAGTCGCTTATGACAACAAT
+R05D3.12a_chIII              GCACATCGACAATCATATCATCATGGAGAAGAATCACTGGTCAGAACAAT
+chr_III_random_homology      GAAGAAAAGGAA-------ACCACCGA----AGCTGTTAACCTCACTACT
+                             *   *              * **  **    *     *      *  * *
+
+cin-4                        TGTGAATCTCGCTCAAG-ATTACGTTGGCTCCCACAACATCAACCTGCTT
+top-2                        TGTGAATCTCGCTCAAG-ATTACGTTGGCTCCAACAACATCAACCTGCTT
+Y46H3C.4_chV                 TGTGCATCTCGCCCAGG-ATTACG--------------------------
+R05D3.12a_chIII              CATTCGAATGGGTCAAACATTTTGTGGATCTTCGAATCTTCCACTT-CTT
+chr_III_random_homology      TGAGGAGCTGCTTCAAG-GCAACTTAGTCACTACCGGTCTTTAC-TACAT
+                                     *    **                                   
+
+cin-4                        CTTCCTATCGGGCAGTTTGGTACTCGTCTCCAAGGTGGAAAGGACAGTGC
+top-2                        CTTCCAATCGGACAGTTTGGTACTCGTCTCCAAGGTGGAAAGGACAGTGC
+Y46H3C.4_chV                 ----------------------------------GTGGAAAGGACAGTGC
+R05D3.12a_chIII              CAACCAATTGGACAGTTCGGAACACGTCATGAAGGAGGAAATGATGCAGC
+chr_III_random_homology      CTTTTGAC---------TATTACTC----------TGGAAACTACACT--
+                                                                 *****  *      
+
+cin-4                        TTCAGCTCGTTCCATCTTCGCTCAACTGTCGCAAGTCACTCGTACACTCT
+top-2                        TTCAGCTCGTTACATCTTCACTCAACTGTCGCCAGTCACTCGTACACTCT
+Y46H3C.4_chV                 TTCAGCTCAGTACATCTTTACTCAACTGTCGCCAGTCACTCGTACACTCT
+R05D3.12a_chIII              TTCTGCCAGATATATTTTTACTGCGCTCGCTCCAACAACTCGTTTGCTTT
+chr_III_random_homology      -----CTCGGTAGGACTAGGACTAGTCGGTACTAGTAGTGAGTA-GTAGT
+                                  *    *     *              * *       **      *
+
+cin-4                        TCCCGGCTCACGATGACAATGTCCTTCGTTTCCTTTATGAAGAAAATCAG
+top-2                        TCCCGGCTCACGATGACAATGTCCTTCGTTTCCTTTATGAAGAAAATCAG
+Y46H3C.4_chV                 TCCCGTCTCACGATGATAATGTTCTGCGTTTTCTTTATGAAGAAAATCAG
+R05D3.12a_chIII              TCCCACAGGCGGATGATGATCTCCTTCAAAAAAATGTAGAAGAGGGAATG
+chr_III_random_homology      TTGAGCATGAAATTTAGAGAGACTTCAGGCTCCTAGAACTAGTAGCGCAA
+                             *            * *        *               **        
+
+cin-4                        CGTATTGAGCCAGAATGGTATTGCCCGATTATTCCAATGGTTCTCGTCAA
+top-2                        CGTATTGAGCCAGAATGGTATTGCCCGATTATTCCAATGGTACTCGTCAA
+Y46H3C.4_chV                 CGAATTGAGCCAGAGTGGTATTGTCCAATTAGTCCAATGGTTCTCGTCAA
+R05D3.12a_chIII              GTTGTGGAACCAACGTGGTTATGCCCAATCGTCCCTCTTATTCTGATTAA
+chr_III_random_homology      CTGAAGTCGTAAGAGCCGCTA-GACGAAGTGT------------------
+                                        *     *    * *  *                      
+
+cin-4                        TGGAGCTCAAGGAACCGGTACTGGATGGTCCACGAACATTCCTAATTACA
+top-2                        TGGAGCTCAAGGCATCGGTACTGGATGGTCCACGAACATTCCTAATTACA
+Y46H3C.4_chV                 TGGAGCTCAAGGGATCGATACAGGATGGCGCACGAACATCCCTAATTACA
+R05D3.12a_chIII              TGGAACTGAAGGTATTGGTACTGGATGGTCAACTAAAATTGCAAATCGAA
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        ATCCACGTGAACTGGTCAAGAACATCAAGCGTCTTATCG---CCGGCGAG
+top-2                        ATCCACGTGAACTGGTCAAGAACATCAAGCGTCTTATCG---CCGGCGAG
+Y46H3C.4_chV                 ATCCACGTGAACTGGTCAAGAACATCAAGCGTCTTATCG---CCGGCGAG
+R05D3.12a_chIII              ATCCAATCGATATTATTGATATGATTAGGCGAAAAATTGATTCGATCTCG
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        CCACAGAAAGCCTTAGCTCCATGGTACAAGAACTTCCGCGGAAAGATTAT
+top-2                        CCACAGAAAGCCTTAGCTCCATGGTACAAGAACTTCCGCGGAAAGATCAT
+Y46H3C.4_chV                 CCGCAGAAAGCCTTAGCTCCATGGTACAAGAACTTCCGCGGAAAGATCAT
+R05D3.12a_chIII              ACGGAATATGAAATACCGCCGTTTTATGAAGAGTTCAGAGGAAAACTTGA
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        TCAAATCGACCCGAGTCGATTTGCATGCTATGGTGAAGTTTCTGTGCTTG
+top-2                        TCAAATCGACCCGAGTCGATTTGCATGCTATGGTGAAGTTGCTGTGCTGG
+Y46H3C.4_chV                 TCAAATCGACCCGCGTCGATTTGCATGCTATGGTGAAGTTGCT-------
+R05D3.12a_chIII              AGTAGTTACACCCACAAAGTTTATCAGCAGTGGGAAGATTCAATTGAT--
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        ATGACAATACAATTGAGATCACTGAGTTGCCAATCAAACAGTGGACTCAA
+top-2                        ATGACAACACCATTGAGATCACCGAGTTGCCAATCAAACAGTGGACTCAA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              ------------------------------------------------AC
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        GACTACAAAGAGAAGGTTTTGGAAGGATTGATGGAGAGCTCGGACAAGAA
+top-2                        GACTACAAAGAGAAGGTTTTGGAAGGATTGATGGAGAGCTCGGACAAGAA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              GGCCAGAACGAAAGAAT---------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        ATCGCCTGTTATTGTCGACTACAAAGAGTATCACACAGATACTACTGTTA
+top-2                        ATCGCCTGTTATCGTCGACTACAAAGAGTATCACACAGATACAACTGTCA
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        AGTTCGTCGTGAAGCTCTCGCCGGGAAAACTTCGTGAATTGGAGCGCGGT
+top-2                        AGTTCGTCGTGAAGCTCTCGCCGGGAAAACTTCGTGAATTGGAGCGCGGT
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        CAGGATCTTCATCAAGTCTTCAAGCTCCAAGCTGTCATCAACACTACGTG
+top-2                        CAGGATCTTCATCAAGTCTTCAAGCTCCAAGCTGTCATCAACACTACGTG
+Y46H3C.4_chV                 ------------------------CTCCAATCTGTCATCTGCATGAGCTC
+R05D3.12a_chIII              -----------------------GCTTCAACAT----TTTCCATTGAGAT
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        CATGGTACTTTTCGATGCTGCC-GGATGGCTTCGTACATACACTTCGCCA
+top-2                        CATGGTACTTTTCGATGCTGCC-GGATGTCTTCGTACATACACTTCGCCA
+Y46H3C.4_chV                 CATGGTGCTTTTCGATGCTGCC-GGATGTCTTCGCACGTCCACTTCGCCA
+R05D3.12a_chIII              TGTGGAACTACCAATTGGAATCTGGACTTCAAAATACAAGGAGAA-GCTG
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        GAAGCGATTACTCAAGAGTT-CTACGATAGCCGCCAAGAGAAGTACGTAC
+top-2                        GAAGCGATTACTCAAGAGTT-CTACGATAGTCGCCAAGAGAAGTACGTAC
+Y46H3C.4_chV                 GAGGCAATTACTCAAGAGTT-CTACGATAGCCGCCAAGAGAAGTACCTGC
+R05D3.12a_chIII              TCGAAAATTGTGGAGACATTACCAGTTTTAGAGTTTTCCGAACGGCATAC
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        AGAGAAAGGAGTACCTCCTCGGAGTTCTTCAGGCTCAGAGCAAGCGTCTC
+top-2                        AGAGAAAGGAGTACCTTCTCGGAGTTCTTCAGGCTCAGAGCAAGCGTCTC
+Y46H3C.4_chV                 AGAGAAAGGAGTACCTCCTCGAAGTTCTTCAGGCTCAGAGCAAGCGTCTC
+R05D3.12a_chIII              CGAAAAACGAGTACATTTTCGAATAACTCTTGACAGAAAGAAATCGTCAC
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        ACTAACCAGGCTCGTTTTATCC---TCGCCACGATCAACAACAAGATTGT
+top-2                        ACTAACCAGGCTCGTTTCATCC---TCGCCAAGATCAACAACGAGATTGT
+Y46H3C.4_chV                 ACTAACCAGGCTCGTTTCATCC---TCGCCAAGATCAACAAAGAGATTGT
+R05D3.12a_chIII              GATTTCTACAAAAGAGCAACTCGGATCTTCTGAATTATTTCAAACTTCGG
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        TCTCGAGAACAAGAAGAAGACGGCGATTGTC-GAT-GTTTTGATCAA--G
+top-2                        TCTCGAGAACAAGAAGAAGGCGGCGATTGTC-GAT-GTTTTGATCAA--G
+Y46H3C.4_chV                 ATTCGAGAACAAGAAGAAGGTAGCCATTGTC-GAT-GATTTGATCAA--A
+R05D3.12a_chIII              A--CAAGCTTAACAGAAAATCGAGTGTTGTTTGATAGAAATGGAGAATTG
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        ATGAAGTTCGATGCTGATCCAGTGAAGAAGTGGAAGGAGGACCAAAAGCT
+top-2                        ATGAAGTTCGATGCTGATCCAGTGAAGAAGTGGAAGGAGGAGCAAAAACT
+Y46H3C.4_chV                 ATGGGTTTTGATGCTGATCCAGTGAAGAAGTGGAAGGAGGAGCAAAAGCT
+R05D3.12a_chIII              AAAGAATTCGGAAATATTTCG--GAAATCGCTGCCGAATTTTTTGAAGTT
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        CAAAGAG--CTTCGTGAATCTGGAGAAATCGAGCTGGACGAAGATGATCT
+top-2                        CAAAGAG--CTTCGTGAATCTGGAGAGATCGAGCTGGACGAAGATGATCT
+Y46H3C.4_chV                 CAA---G--CTTCGTGAATCTGGAGAAAT------GGACGAAGATGATCT
+R05D3.12a_chIII              CGCAGAGATCTTTATGAAAAACGGCTGAAAATTCAAAAAGAGGAATGTGA
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        AGCTGCAGTCGCCGTCGAAGAGGGCGAAGACATTTCCTCTGCTGCGAAGG
+top-2                        AGCTGCTGTCGCCGTCGAAGAGGACGAAGCCATTTCCTCTGCTGCGAAGG
+Y46H3C.4_chV                 AGCTACTGTCGCCGTCGAAGATGACGAAGGCGTTTCCTCTGCTGCGAAGG
+R05D3.12a_chIII              AGCAAAACTGATATATGTTGAAAATCAGCTCAATTTCATCGAAATGGTGA
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        CCGTTGAAACCAAGCTATCCGACTACGATTACCTCGTCGGATT-AGCTCT
+top-2                        CCGTTGAAACCAAGCTATCAGACTACGATTACCTTGTCGGAAT-GGCTCT
+Y46H3C.4_chV                 CCGTTGAAACCAAGCTATCAGGCTACGAGTACCTTTTCGGAAT-GACTAT
+R05D3.12a_chIII              CCAATGGAAC-----TATTGAGATACGATCAATGGGACGTAATCAATTGG
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        CATCAAGCTTTCGGAAGAAGAGAAGAATAAGCTCATCAAAGAATCGGAGG
+top-2                        CATCAAGCTTTCGGAAGAAGAGAAGAATAAGCTCATCAAGGAATCGGAGG
+Y46H3C.4_chV                 CCTCGACGTTTCGGAAGAAGAGACTAACAAGCTCATCAATGAATCGGAGG
+R05D3.12a_chIII              AAGAAAAACTTCAGGAAATGGGTTTCA-GAGTTGATC-------CTATGG
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        AGAAGATGGCTGAGGTTCGAGTTCTGGAGAAGAAGACC-TGGCAAGATCT
+top-2                        AGAAGATGGCTGAGGTTCGAGTTATCGAGAAGAAGACC-TGGCAAGATCT
+Y46H3C.4_chV                 AGAAGATGACAGAGCTTCGAGTGCTGAAGAAGAAGACC-TGGCAAGATCT
+R05D3.12a_chIII              CAACTATTGCTAAG-----AACTCCAAAAAAGCAAACTACGGATACCTTC
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        TTGGATTACCGACCTAGACAATTTCATGTCTGAATTG-ACAAGCAGGAGG
+top-2                        TTGGCATGAGGATCTGGACAACTTCGTGTCTGAGTTGGACAAACAGGAGG
+Y46H3C.4_chV                 TTGGCATGAGGATCTGGACAACTTCCTTTCCGAGTTGGACAAGCAAGAGG
+R05D3.12a_chIII              TTGAAATGCCGGTCTC-ACGACTAACT-TCTGA--TG---AAATGAAAAG
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        CTCGCGAGAAAGCTGAGTCTAAGGCGAACCGCGA------CGCGATGGTA
+top-2                        CTCGCGAGAAAGCTGATCAAGATGCCAGCATCAAAAATGCCGCCAAAAAG
+Y46H3C.4_chV                 CTCGCGAGAGGGGTGATCAAGATGCTATGCTCGAGAATGCCGTCAAGAAG
+R05D3.12a_chIII              ATTGGAAGAACGAAAATCACGACGGAGAACTGAG------CTTGAAGCAG
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        TGCG--ATGATATGTCAGAG---GAGAGTGACGTGGAGTTCGATGAAGGA
+top-2                        CTTG--CTGCCGACGCAAAGACCGGACGTGGACCCAAGAAGAATGTGTGC
+Y46H3C.4_chV                 CTTG--CTGCAGACGCAAAGAGCGGACGTGGATCCACGAAGAATGTGTGC
+R05D3.12a_chIII              CTGAATCTGCAGATTGGAAATCTGTGTGGCGTTCCGAATTGGACAAGTTG
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        ATCGATTTCAATTCGGACGATGACGGT--GTGGAGCGTGAGAATGTCG--
+top-2                        ACGGAAGTCCTTCCATCCAAAGATGGACAGCGCATTGAGCCGATGTTGGA
+Y46H3C.4_chV                 CCGGAAGTCCTCCCATCCAAGGACGGACATCGTATCGAGCCGCGGTTTGA
+R05D3.12a_chIII              GCAGAGGCAGTTGGAAACAATAGAAAGAGTTAA-----------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        TCTCGAAGCTGA--------------------------------------
+top-2                        TGCTGCAACCAAGGCCAAATATGAGAAGATGTCTCAGCCAAAGAAGGAAC
+Y46H3C.4_chV                 TGCCGCAACCAAGGCAAAGTATGAAAAGATGACGCAGCCAAAGCGGGAAC
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GCGTCAAGAAAGAGCCAAAGGAGCCGAAAGAACCAAAGAAGGTGAAAAAG
+Y46H3C.4_chV                 GCGTCAAGAAAGAGCCAAAGAAGCTGGCGTGGCAAGCCGATTGTGACGAC
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GAAGGCCAGGACATTAAAAAGTTCATGTCTCCAGCTGCTCCGAAGACTGC
+Y46H3C.4_chV                 GATGTTGGCGTCACTTCTGATGAAGAAGTCATAAGAAAGCCAAAGCCACG
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GAAGAAGGAGAAAAGCGACGGCTTCAACTCTGACATGTCAGAGGAAAGTG
+Y46H3C.4_chV                 TGCAGAAAGAAGAGCTGCAAAAAAGCCAGCTGTGGAGGCTCCAGCAAAGA
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        ACGTGGAGTTCGATGAAGGAATCGATTTCGATTCGGACGATGACGGTGTG
+Y46H3C.4_chV                 AGGCTGAGCCGAAGAAGAAGAAGAACAACAAGCTCTACGACATGTCTGGC
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GAGCGTGAGGATGTCGTCTCAAAGCCAAAACCTCGTACTGGAAAAGGAGC
+Y46H3C.4_chV                 GGCGAGAGTGCTGATGACGTCGGCGAGAAAGAGGGATCGGACAATGGTAG
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        TGCGAAAGCGGAAGTTATCGATTTGTCAGATGATGATGAAGTTCCTGCAA
+Y46H3C.4_chV                 TGTGGGAAGCGGTTAG----------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        AGAAGCCTGCTCCAGCGAAGAAAGCTGCTCCGAAGAAGAAAAAGAGCGAG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        TTCAGCGATCTGTCTGGCGGCGACAGTGATGAAGAAGCTGAGAAGAAGCC
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GTCCACCAGCAAAAAGCCGTCTCCAAAGAAGGCTGCTCCGAAGACGGCCG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        AGCCCAAGTCGAAGGCGGTGACCGATTTCTTTGGTGCTTCAAAGAAGAAC
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GGAAAGAAGGCCGCTGGTTCCGATGATGAAGACGACGAAAGCTTCGTTGT
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        GGCTCCAAGAGAGAAGAGCGGAAGAGCTCGCAAGGCGCCACCAACTTACG
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        --------------------------------------------------
+top-2                        ACGTGGATTCAGGATCCGATTCGGATCAGCCAAAGAAGAAGAGGGGACGC
+Y46H3C.4_chV                 --------------------------------------------------
+R05D3.12a_chIII              --------------------------------------------------
+chr_III_random_homology      --------------------------------------------------
+                                                                               
+
+cin-4                        ------------------------
+top-2                        GTCGTCGACTCCGACTCGGATTAA
+Y46H3C.4_chV                 ------------------------
+R05D3.12a_chIII              ------------------------
+chr_III_random_homology      ------------------------
+                                                     
