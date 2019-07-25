@@ -4,12 +4,15 @@ library(ggbeeswarm)
 library(linkagemapping)
 library(data.table)
 library(genetics)
-
+library(cegwas)
+library(maps)
+library(ggthemes)
+library(ggtree)
 # format settings
 # colors
 axis_color <- "#000F08"
 highlight_color <- "#D7263D"
-background_color <- "#FCFFFC"
+background_color <- "white"
 # strain colors
 strain_colors <- c("N2" = "#F9A227", "CB4856" = "#2790F9", "Other" = "gray50", "JU775" = "#999999", "DL238" = "hotpink3",
                    "REF"= "gray60", "ALT" = "#D7263D")

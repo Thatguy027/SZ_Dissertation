@@ -26,8 +26,8 @@ etoposide_linkage %>%
         panel.grid.major = element_blank(),
         panel.border = element_rect(fill = NA))
 
-ggsave(filename = "Plots/etoposide_medianTOF_Linkage.png", height = 4, width = 12, dpi = 400)
-ggsave(filename = "Plots/etoposide_medianTOF_Linkage.pdf", height = 4, width = 12, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_Linkage.png", height = 4, width = 12, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_Linkage.pdf", height = 4, width = 12, dpi = 400)
 
 ######################################################################################################################## Linkage LOD PLOT
 
@@ -56,8 +56,34 @@ pxgplot_edit(cross = etoposide_cross, map = corrected_map)+
         axis.line = element_line(colour = axis_color)) +
   labs(title = "")
  
-ggsave(filename = "Plots/etoposide_medianTOF_Linkage_PxG.png", height = 6, width = 8, dpi = 400)
-ggsave(filename = "Plots/etoposide_medianTOF_Linkage_PxG.pdf", height = 6, width = 8, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_Linkage_PxG.png", height = 6, width = 8, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_Linkage_PxG.pdf", height = 6, width = 8, dpi = 400)
+
+######################################################################################################################## complementation
+etoposide_comp <- data.table::fread(glue::glue("{etoposide_data}TableS11_Reciprocal-Hemizygosity.csv"))
+
+
+etoposide_comp %>%
+  dplyr::filter(trait == "median.TOF")%>%
+  ggplot(.)+
+  aes(x = strain, 
+      fill = strain, y = phenotype)+
+  geom_beeswarm(alpha = point_alpha,
+                priority = "density",
+                cex = 1.2)+
+  geom_boxplot(outlier.colour = NA, alpha = boxplot_alpha)+
+  scale_fill_manual(values = c("Bristol" = "#F9A227","Hawaii" = "#2790F9",
+                               "Hawaii/∆Bristol" = "#2790F9","Bristol/∆Hawaii" = "#F9A227","Hawaii/∆Hawaii" = "#2790F9","Bristol/∆Bristol" = "#F9A227"))+
+  base_theme +
+  theme(legend.position = "none",
+        panel.grid.major = element_blank(),
+        axis.line = element_line(colour = axis_color),
+        axis.title.x = element_blank(),
+        plot.title = element_blank()) +
+  labs(y = "Animal Length")
+
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_respricoal_hemi.png", height = 6, width = 12, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_respricoal_hemi.pdf", height = 6, width = 12, dpi = 400)
 
 ######################################################################################################################## NILs
 
@@ -90,8 +116,8 @@ etoposide_nil_pheno %>%
         plot.title = element_blank()) +
   labs( y = paste0("Animal Length"))
 
-ggsave(filename = "Plots/etoposide_medianTOF_NIL.png", height = 6, width = 12, dpi = 400)
-ggsave(filename = "Plots/etoposide_medianTOF_NIL.pdf", height = 6, width = 12, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_NIL.png", height = 6, width = 12, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_NIL.pdf", height = 6, width = 12, dpi = 400)
 
 ######################################################################################################################## GWA MANHATTAN PLOT
 
@@ -108,8 +134,8 @@ cegwas2_manplot(etoposide_gwa, eigen_cutoff = -log10(0.05/independent_tests))[[1
         panel.border = element_rect(fill = NA), 
         plot.title = element_blank())
 
-ggsave(filename = "Plots/etoposide_medianTOF_GWA.png", height = 4, width = 12, dpi = 400)
-ggsave(filename = "Plots/etoposide_medianTOF_GWA.pdf", height = 4, width = 12, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_GWA.png", height = 4, width = 12, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_GWA.pdf", height = 4, width = 12, dpi = 400)
 
 ######################################################################################################################## GWA PxG
 
@@ -158,8 +184,8 @@ pxg_df %>%
         panel.grid.major = element_blank(),
         axis.line = element_line(colour = axis_color))
 
-ggsave(filename = "Plots/etoposide_medianTOF_GWA_PxG.png", height = 6, width = 8, dpi = 400)
-ggsave(filename = "Plots/etoposide_medianTOF_GWA_PxG.pdf", height = 6, width = 8, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_GWA_PxG.png", height = 6, width = 8, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_GWA_PxG.pdf", height = 6, width = 8, dpi = 400)
 
 ######################################################################################################################## GWA PEAK LD
 gm <- readr::read_tsv(glue::glue("{etoposide_cegwas2_data}Genotype_Matrix.tsv"))
@@ -172,8 +198,8 @@ LD_output[[1]] +
   theme(axis.title.x = element_blank(),
         axis.title.y = element_blank())
 
-ggsave(filename = "Plots/etoposide_medianTOF_GWA_PeakLD.png", height = 10, width = 14, dpi = 400)
-ggsave(filename = "Plots/etoposide_medianTOF_GWA_PeakLD.pdf", height = 10, width = 14, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_GWA_PeakLD.png", height = 10, width = 14, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_GWA_PeakLD.pdf", height = 10, width = 14, dpi = 400)
 
 ######################################################################################################################## GWA Fine mapping
 # something is wrong with the compression, need to compress to push to github an uncompress to load and 
@@ -218,8 +244,9 @@ LD_genotypes%>%
   theme(panel.grid.major = element_blank(),
         axis.line = element_line(colour = axis_color))
 
-ggsave(filename = "Plots/Etoposide_medianTOF_GWA_FineMap.png", height = 6, width = 16, dpi = 400)
-ggsave(filename = "Plots/Etoposide_medianTOF_GWA_FineMap.pdf", height = 6, width = 16, dpi = 400)
+ggsave(filename = "Plots/Etoposide/Etoposide_medianTOF_GWA_FineMap.png", height = 6, width = 16, dpi = 400)
+ggsave(filename = "Plots/Etoposide/Etoposide_medianTOF_GWA_FineMap.pdf", height = 6, width = 16, dpi = 400)
+
 
 ######################################################################################################################## SWAP - Etoposide only
 
@@ -248,8 +275,8 @@ etoposide_swap%>%
                       axis.title.x = element_blank()) +
   labs( y = paste0("Animal Length"))
 
-ggsave(filename = "Plots/etoposide_medianTOF_SWAP.png", height = 6, width = 10, dpi = 400)
-ggsave(filename = "Plots/etoposide_medianTOF_SWAP.pdf", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_SWAP.png", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_medianTOF_SWAP.pdf", height = 6, width = 10, dpi = 400)
 
 ######################################################################################################################## SWAP - All poisons
 
@@ -283,8 +310,8 @@ poison_swap%>%
                       axis.title.x = element_blank()) +
   labs( y = paste0("Animal Length"))
 
-ggsave(filename = "Plots/amsacrine_medianTOF_SWAP.png", height = 6, width = 10, dpi = 400)
-ggsave(filename = "Plots/amsacrine_medianTOF_SWAP.pdf", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/amsacrine_medianTOF_SWAP.png", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/amsacrine_medianTOF_SWAP.pdf", height = 6, width = 10, dpi = 400)
 
 ######################################################################################################################## xk469
 poison_swap%>%
@@ -314,8 +341,8 @@ poison_swap%>%
                       axis.title.x = element_blank()) +
   labs( y = paste0("Animal Length"))
 
-ggsave(filename = "Plots/XK469_medianTOF_SWAP.png", height = 6, width = 10, dpi = 400)
-ggsave(filename = "Plots/XK469_medianTOF_SWAP.pdf", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/XK469_medianTOF_SWAP.png", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/XK469_medianTOF_SWAP.pdf", height = 6, width = 10, dpi = 400)
 
 ######################################################################################################################## teniposide
 poison_swap%>%
@@ -345,8 +372,8 @@ poison_swap%>%
                       axis.title.x = element_blank()) +
   labs( y = paste0("Animal Length"))
 
-ggsave(filename = "Plots/Teniposide_medianTOF_SWAP.png", height = 6, width = 10, dpi = 400)
-ggsave(filename = "Plots/Teniposide_medianTOF_SWAP.pdf", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/Teniposide_medianTOF_SWAP.png", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/Teniposide_medianTOF_SWAP.pdf", height = 6, width = 10, dpi = 400)
 
 ######################################################################################################################## dactinomycin
 
@@ -377,8 +404,8 @@ dact_swap%>%
                       axis.title.x = element_blank()) +
   labs( y = paste0("Brood Size"))
 
-ggsave(filename = "Plots/Dactionmycin_Brood_SWAP.png", height = 6, width = 10, dpi = 400)
-ggsave(filename = "Plots/Dactionmycin_Brood_SWAP.pdf", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/Dactionmycin_Brood_SWAP.png", height = 6, width = 10, dpi = 400)
+ggsave(filename = "Plots/Etoposide/Dactionmycin_Brood_SWAP.pdf", height = 6, width = 10, dpi = 400)
 
 ######################################################################################################################## human data
 
@@ -454,14 +481,14 @@ top2a_expt%>%
         axis.title.x = element_blank()) +
   labs(y = "Fraction Edited Reads")
 
-ggsave(filename = "Plots/Human_SWAP.png", height = 6, width = 8, dpi = 400)
-ggsave(filename = "Plots/Human_SWAP.pdf", height = 6, width = 8, dpi = 400)
+ggsave(filename = "Plots/Etoposide/Human_SWAP.png", height = 6, width = 8, dpi = 400)
+ggsave(filename = "Plots/Etoposide/Human_SWAP.pdf", height = 6, width = 8, dpi = 400)
 
 ######################################################################################################################## PopGene
 
-# args <- c("II","10050022","12062611","Ce330_annotated.vcf.gz","WS245_exons.gff", "Etoposide")
+# Rscript --vanilla Interval_Popgen.R II 10050022 12062611 Ce330_annotated.vcf.gz WS245_exons.gff Etoposide 249_samples.txt
 
-load("Data/Etoposide_II_10050022-12062611_Diversity_Statistics.Rda")
+load("Run_Popgen/Etoposide_II_10050022-12062611_Diversity_Statistics.Rda")
 
 qtl_start <- 10050022
 qtl_end <- 12062611
@@ -488,61 +515,6 @@ td_df %>%
         axis.title.y = element_blank()) +
   labs(x = "Genomic Position (Mb)")
 
-ggsave(filename = "Plots/etoposide_popgen.png", height = 8, width = 12, dpi = 400)
-ggsave(filename = "Plots/Human_SWAP.pdf", height = 6, width = 8, dpi = 400)
-
-load("Data/etoposide_test_interval_10050022-12062611_Diversity_Statistics.Rda")
-
-td_df <- neutrality_df %>%
-  dplyr::filter(statistic %in% c("Fay.Wu.H","Zeng.E","Tajima.D")) %>%
-  dplyr::group_by(statistic) %>%
-  dplyr::mutate(scaled_value = scale(value))
-
-td_df %>%
-  dplyr::filter(WindowPosition > qtl_start) %>%
-  dplyr::filter(WindowPosition < qtl_end) %>%
-  ggplot()+
-  aes(x = WindowPosition/1e6, y = value, color = statistic)+
-  annotate("rect",
-           xmin=dbt_start/1e6, 
-           xmax=dbt_end/1e6, 
-           ymin=-Inf, 
-           ymax=Inf, 
-           alpha=0.5, 
-           fill="cyan") +
-  geom_point(size = point_size, alpha = point_alpha)+
-  scale_color_manual(values = c("#BE0032","#0067A5","#222222"))+
-  facet_grid(statistic~., scales = "free")+
-  base_theme +
-  theme(panel.grid.major = element_blank(),
-        legend.position = "none",
-        axis.line = element_line(colour = axis_color),
-        axis.title.x = element_blank()) +
-  labs(x = "Genomic Position (Mb)")
-
-td_df %>%
-  dplyr::filter(WindowPosition > qtl_start) %>%
-  dplyr::filter(WindowPosition < qtl_end) %>%
-  ggplot()+
-  aes(x = WindowPosition/1e6, y = value, color = statistic)+
-  annotate("rect",
-           xmin=dbt_start/1e6, 
-           xmax=dbt_end/1e6, 
-           ymin=-Inf, 
-           ymax=Inf, 
-           alpha=0.5, 
-           fill="cyan") +
-  geom_point(size = point_size, alpha = point_alpha)+
-  scale_color_manual(values = col_blind_colors)+
-  facet_grid(statistic~., scales = "free")+
-  base_theme +
-  theme(panel.grid.major = element_blank(),
-        legend.position = "none",
-        axis.line = element_line(colour = axis_color),
-        axis.title.x = element_blank()) +
-  labs(x = "Genomic Position (Mb)")+
-  xlim(c((dbt_start-50000)/1e6, (dbt_end+50000)/1e6))
-
-
-
+ggsave(filename = "Plots/Etoposide/etoposide_popgen.png", height = 8, width = 12, dpi = 400)
+ggsave(filename = "Plots/Etoposide/etoposide_popgen.pdf", height = 8, width = 12, dpi = 400)
 

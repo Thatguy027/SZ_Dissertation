@@ -18,6 +18,24 @@ plot_riail_geno <- function(riail_gt) {
   return(r_gt)
 }
 
+isnt_out_tukey <- function(x, k = 1.5, na.rm = TRUE) {
+  quar <- quantile(x, probs = c(0.25, 0.75), na.rm = na.rm)
+  iqr <- diff(quar)
+  
+  (quar[1] - k * iqr <= x) & (x <= quar[2] + k * iqr)
+}
+isnt_out_z <- function(x, thres = 3, na.rm = TRUE) {
+  abs(x - mean(x, na.rm = na.rm)) <= thres * sd(x, na.rm = na.rm)
+}
+isnt_out_mad <- function(x, thres = 3, na.rm = TRUE) {
+  abs(x - median(x, na.rm = na.rm)) <= thres * mad(x, na.rm = na.rm)
+}
+
+isnt_out_funs <- funs(
+  z = isnt_out_z,
+  mad = isnt_out_mad,
+  tukey = isnt_out_tukey
+)
 
 
 maxlodplot_edit <- function(map){
@@ -419,3 +437,14 @@ rial_bar_plot <- function(cross, map, parent="N2xCB4856", color_by_genotype = TR
   return(plots)
 }
 
+plot_bar <- function(df, pt_colors){
+  ggplot(df)+
+    aes(x=strain2, y=final_pheno, fill = factor(build_GT,
+                                                levels = sort(unique(build_GT)), 
+                                                labels= c("None", sort(unique(build_GT)[2:8]) )))+
+    geom_bar(stat="identity", color = "black", size = .1) +
+    scale_fill_manual(values= pt_colors,
+                      name = expression(paste("Variation at ", italic("ben-1"))))+
+    labs(x = "Strain", y = paste0("Albendazole Resistance"))
+  
+} 
